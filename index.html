@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apps by Luciano dii Souza</title>
+  <meta name="description" content="Every app and open-source project I've built and talked about on my content, all in one place." />
+  <meta property="og:title" content="Apps by Luciano dii Souza" />
+  <meta property="og:description" content="Every app and open-source project I've built and talked about on my content, all in one place." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://apps.oprimo.dev/" />
+  <link rel="canonical" href="https://apps.oprimo.dev/" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="hero-kicker">lucianodiisouza / apps</p>
+      <h1>Stuff I've <span class="mark">built</span>.</h1>
+      <p class="hero-sub">
+        Saw an app on one of my videos or posts and want to try it?
+        This is the full catalog: every open-source project and app I ship, in one place.
+      </p>
+      <nav class="hero-links" aria-label="Social links">
+        <a href="https://github.com/lucianodiisouza" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="toolbar">
+      <input
+        id="search"
+        type="search"
+        placeholder="Search apps… (e.g. teleprompter, finance, camera)"
+        aria-label="Search apps"
+      />
+      <div id="filters" class="filters" role="group" aria-label="Filter by category"></div>
+    </div>
+
+    <p id="count" class="count" aria-live="polite"></p>
+    <section id="grid" class="grid" aria-label="Projects"></section>
+    <p id="empty" class="empty" hidden>Nothing matches that. Try another word, or <button id="clear" class="linkish">clear the search</button>.</p>
+  </main>
+
+  <footer>
+    <p>
+      Built by <a href="https://github.com/lucianodiisouza" target="_blank" rel="noopener">Luciano dii Souza</a>.
+      Tip: every card has its own link. Click a title and share the URL.
+    </p>
+  </footer>
+
+  <script src="projects.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
