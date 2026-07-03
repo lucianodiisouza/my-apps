@@ -56,5 +56,13 @@
 
   <script src="projects.js"></script>
   <script src="app.js"></script>
+  <script>
+    // GoatCounter config: include the hash in the counted path so arrivals
+    // via shared deep links (/#semaphore) show up per project.
+    window.goatcounter = {
+      path: () => location.pathname + location.hash,
+    };
+  </script>
+  <script data-goatcounter="https://oprimo.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

@@ -130,7 +130,22 @@ function showToast(msg) {
   toastTimer = setTimeout(() => toast.classList.remove("show"), 2000);
 }
 
+// GoatCounter custom events (no-op if the script hasn't loaded / is blocked).
+function track(eventPath) {
+  if (window.goatcounter && window.goatcounter.count) {
+    window.goatcounter.count({ path: eventPath, event: true });
+  }
+}
+
 grid.addEventListener("click", async (e) => {
+  const action = e.target.closest(".card-actions a");
+  if (action) {
+    const slug = action.closest(".card").id;
+    const label = action.textContent.trim().toLowerCase().replace(/\s+/g, "-");
+    track(`click-${slug}-${label}`);
+    return; // let the link navigate normally
+  }
+
   const titleLink = e.target.closest("h3 a");
   if (!titleLink) return;
   e.preventDefault();
@@ -138,6 +153,7 @@ grid.addEventListener("click", async (e) => {
   const url = `${location.origin}${location.pathname}#${slug}`;
   history.replaceState(null, "", `#${slug}`);
   focusHash();
+  track(`copy-link-${slug}`);
   try {
     await navigator.clipboard.writeText(url);
     showToast("🔗 Link copied, paste it anywhere");
