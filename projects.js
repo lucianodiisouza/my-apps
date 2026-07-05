@@ -246,4 +246,19 @@ const PROJECTS = [
     links: [{ label: "npm", url: "https://www.npmjs.com/package/primotion" }],
     featured: false,
   },
+  {
+    slug: "holedeep",
+    name: "HoleDeep",
+    emoji: "🕳️",
+    tagline: "Pomodoro timer with a black hole that enforces your breaks",
+    description:
+      "A pomodoro timer where breaks are enforced by a black hole that gravitationally lenses your live desktop. Built with Tauri 2, React and WebGL2.",
+    category: "Experiments",
+    platforms: ["Desktop"],
+    tech: ["TypeScript", "Rust"],
+    stars: 0,
+    github: "https://github.com/lucianodiisouza/holedeep",
+    links: [],
+    featured: false,
+  },
 ];
