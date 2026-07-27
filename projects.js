@@ -291,4 +291,19 @@ const PROJECTS = [
     links: [],
     featured: false,
   },
+  {
+    slug: "voulum",
+    name: "Voulum",
+    emoji: "🔊",
+    tagline: "Per-app volume control for macOS, from your menu bar",
+    description:
+      "macOS gives you one system volume, not one per app. Voulum adds the missing mixer: see which app is making sound, jump straight to it, and set each app's volume or mute it independently — built on Core Audio process taps, no kernel extension.",
+    category: "Dev Tools",
+    platforms: ["macOS"],
+    tech: ["Swift"],
+    stars: 0,
+    github: "https://github.com/lucianodiisouza/voulum",
+    links: [],
+    featured: false,
+  },
 ];
