@@ -4,6 +4,21 @@
 // `slug` powers deep links like https://your.site/#semaphore for social posts.
 const PROJECTS = [
   {
+    slug: "lifeboard",
+    name: "LifeBoard",
+    emoji: "🧩",
+    tagline: "Modular, self-hosted personal life dashboard",
+    description:
+      "A shell-first personal dashboard where every feature is a pluggable module: Thoughts, Tasks, Money, Calendar, Goals, GitHub, File Board and Mood. Universal inbox capture, ⌘K search across modules, and cross-module links (tasks ↔ thoughts). Web-only, single-user, self-hosted for ~$7/mo.",
+    category: "Web Apps",
+    platforms: ["Web", "Self-hosted"],
+    tech: ["TypeScript", "React"],
+    stars: null,
+    github: "https://github.com/lucianodiisouza/lifeboard",
+    links: [],
+    featured: true,
+  },
+  {
     slug: "conduzir",
     name: "Conduzir",
     emoji: "🎓",
