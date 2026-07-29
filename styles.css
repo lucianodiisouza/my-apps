@@ -76,6 +76,12 @@ a { color: inherit; }
   margin: 0 0 20px;
 }
 
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .hero-links a {
   display: inline-block;
   font-family: "Archivo", sans-serif;
