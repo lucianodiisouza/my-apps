@@ -83,7 +83,9 @@ a { color: inherit; }
 }
 
 .hero-links a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: "Archivo", sans-serif;
   font-weight: 700;
   font-size: 0.9rem;
@@ -95,6 +97,9 @@ a { color: inherit; }
   box-shadow: var(--shadow-sm);
   transition: transform 0.1s, box-shadow 0.1s;
 }
+
+/* desktop: labels only, no icons */
+.hero-links a .icon { display: none; flex-shrink: 0; }
 
 .hero-links a:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--line); }
 
@@ -294,6 +299,13 @@ footer {
   text-align: center;
   font-size: 0.85rem;
   color: var(--muted);
+}
+
+@media (max-width: 600px) {
+  /* mobile: icons only, no labels */
+  .hero-links a { padding: 10px; }
+  .hero-links a .icon { display: inline-block; }
+  .hero-links a .label { display: none; }
 }
 
 @media (max-width: 480px) {
