@@ -316,7 +316,7 @@ const PROJECTS = [
     category: "Dev Tools",
     platforms: ["macOS"],
     tech: ["Swift"],
-    stars: 26,
+    stars: 27,
     github: "https://github.com/lucianodiisouza/voulum",
     links: [],
     featured: false,
