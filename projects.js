@@ -4,6 +4,21 @@
 // `slug` powers deep links like https://your.site/#semaphore for social posts.
 const PROJECTS = [
   {
+    slug: "primoengine",
+    name: "PrimoEngine",
+    emoji: "🖼️",
+    tagline: "Native animated wallpapers for macOS",
+    description:
+      "Native animated wallpapers for macOS — video, Metal shaders and web — built to respect your battery and GPU. Curated freemium library with a shader/web engine plus AI-generated scenes.",
+    category: "Products",
+    platforms: ["macOS"],
+    tech: ["Swift", "Metal"],
+    stars: 1,
+    github: "https://github.com/lucianodiisouza/livewallpaper",
+    links: [],
+    featured: true,
+  },
+  {
     slug: "lifeboard",
     name: "LifeBoard",
     emoji: "🧩",
