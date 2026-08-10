@@ -28,7 +28,7 @@ const PROJECTS = [
     category: "Web Apps",
     platforms: ["Web", "Self-hosted"],
     tech: ["TypeScript", "React"],
-    stars: 13,
+    stars: 14,
     github: "https://github.com/lucianodiisouza/lifeboard",
     links: [],
     featured: true,
@@ -121,7 +121,7 @@ const PROJECTS = [
     category: "Dev Tools",
     platforms: ["macOS"],
     tech: ["Swift"],
-    stars: 0,
+    stars: 1,
     github: "https://github.com/lucianodiisouza/shakedrop",
     links: [
       { label: "Download v1.0.0", url: "https://github.com/lucianodiisouza/shakedrop/releases/tag/v1.0.0" },
