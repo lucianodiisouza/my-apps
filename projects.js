@@ -112,6 +112,23 @@ const PROJECTS = [
     featured: true,
   },
   {
+    slug: "shakedrop",
+    name: "ShakeDrop",
+    emoji: "🫳",
+    tagline: "Drop, shake, AirDrop. From the menu bar.",
+    description:
+      "A macOS menu-bar app that opens AirDrop the moment you shake the mouse while holding a file. No more dragging into a window or hunting through the share menu — drop a file, shake, done. First stable release (v1.0.0).",
+    category: "Dev Tools",
+    platforms: ["macOS"],
+    tech: ["Swift"],
+    stars: 0,
+    github: "https://github.com/lucianodiisouza/shakedrop",
+    links: [
+      { label: "Download v1.0.0", url: "https://github.com/lucianodiisouza/shakedrop/releases/tag/v1.0.0" },
+    ],
+    featured: true,
+  },
+  {
     slug: "notchy",
     name: "Notchy",
     emoji: "📜",
