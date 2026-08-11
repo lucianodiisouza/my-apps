@@ -73,7 +73,7 @@ const PROJECTS = [
     category: "Education",
     platforms: ["Web"],
     tech: ["TypeScript"],
-    stars: 67,
+    stars: 68,
     github: "https://github.com/lucianodiisouza/teorical-questions-detran",
     links: [],
     featured: true,
@@ -121,7 +121,7 @@ const PROJECTS = [
     category: "Dev Tools",
     platforms: ["macOS"],
     tech: ["Swift"],
-    stars: 1,
+    stars: 2,
     github: "https://github.com/lucianodiisouza/shakedrop",
     links: [
       { label: "Download v1.0.0", url: "https://github.com/lucianodiisouza/shakedrop/releases/tag/v1.0.0" },
