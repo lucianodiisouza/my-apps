@@ -58,7 +58,7 @@ const PROJECTS = [
     category: "Dev Tools",
     platforms: ["macOS"],
     tech: ["Rust"],
-    stars: 41,
+    stars: 42,
     github: "https://github.com/lucianodiisouza/semaphore",
     links: [],
     featured: true,
