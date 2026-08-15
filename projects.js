@@ -348,7 +348,7 @@ const PROJECTS = [
     category: "Dev Tools",
     platforms: ["macOS", "Web"],
     tech: ["Swift", "Svelte"],
-    stars: 5,
+    stars: 6,
     github: "https://github.com/lucianodiisouza/PoorDeck",
     links: [],
     featured: false,
