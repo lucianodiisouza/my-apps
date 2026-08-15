@@ -168,7 +168,7 @@ const PROJECTS = [
     category: "Web Apps",
     platforms: ["Web"],
     tech: ["TypeScript"],
-    stars: 9,
+    stars: 10,
     github: "https://github.com/lucianodiisouza/open-mock",
     links: [{ label: "Try it", url: "https://open-mock.vercel.app" }],
     featured: false,
