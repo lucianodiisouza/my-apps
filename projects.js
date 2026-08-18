@@ -88,7 +88,7 @@ const PROJECTS = [
     category: "Web Apps",
     platforms: ["Web", "Self-hosted"],
     tech: ["TypeScript"],
-    stars: 76,
+    stars: 77,
     github: "https://github.com/lucianodiisouza/recta-selfhosted-backend",
     links: [
       { label: "Backend", url: "https://github.com/lucianodiisouza/recta-selfhosted-backend" },
