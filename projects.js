@@ -28,7 +28,7 @@ const PROJECTS = [
     category: "Web Apps",
     platforms: ["Web", "Self-hosted"],
     tech: ["TypeScript", "React"],
-    stars: 14,
+    stars: 15,
     github: "https://github.com/lucianodiisouza/lifeboard",
     links: [],
     featured: true,
