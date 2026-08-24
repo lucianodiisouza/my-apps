@@ -4,6 +4,23 @@
 // `slug` powers deep links like https://your.site/#semaphore for social posts.
 const PROJECTS = [
   {
+    slug: "primo-academy",
+    name: "PrimoAcademy",
+    emoji: "🗺️",
+    tagline: "Trilhas de programação em PT-BR, gratuitas e open source",
+    description:
+      "Roadmaps de estudo de programação, em português, gratuitos e open source. Inspirado no roadmap.sh, mas pensado para quem está começando do zero — independente de usar IA ou não no caminho.",
+    category: "Education",
+    platforms: ["Web"],
+    tech: ["TypeScript", "Next.js"],
+    stars: 0,
+    github: "https://github.com/lucianodiisouza/aprenda-community",
+    links: [
+      { label: "aprenda.oprimo.dev", url: "https://aprenda.oprimo.dev" },
+    ],
+    featured: true,
+  },
+  {
     slug: "primoengine",
     name: "PrimoEngine",
     emoji: "🖼️",
