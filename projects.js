@@ -13,7 +13,7 @@ const PROJECTS = [
     category: "Education",
     platforms: ["Web"],
     tech: ["TypeScript", "Next.js"],
-    stars: 36,
+    stars: 37,
     github: "https://github.com/lucianodiisouza/aprenda-community",
     links: [
       { label: "aprenda.oprimo.dev", url: "https://aprenda.oprimo.dev" },
