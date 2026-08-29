@@ -386,6 +386,21 @@ const PROJECTS = [
     featured: false,
   },
   {
+    slug: "daily-notch",
+    name: "DailyNotch",
+    emoji: "⏳",
+    tagline: "Focus + task tracker that lives in your MacBook's notch (WIP)",
+    description:
+      "An open-source macOS notch app that turns the space around the notch into a focus and task tracker. Hover to reveal your to-do list and a GitHub-style activity streak; start a task to run a Pomodoro timer right in the notch. Native SwiftUI + AppKit, local-first. Work in progress.",
+    category: "Dev Tools",
+    platforms: ["macOS"],
+    tech: ["Swift"],
+    stars: 0,
+    github: "https://github.com/lucianodiisouza/daily-notch-tracker",
+    links: [],
+    featured: false,
+  },
+  {
     slug: "reviewify",
     name: "Reviewify",
     emoji: "🔍",
