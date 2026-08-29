@@ -13,7 +13,7 @@ const PROJECTS = [
     category: "Education",
     platforms: ["Web"],
     tech: ["TypeScript", "Next.js"],
-    stars: 49,
+    stars: 50,
     github: "https://github.com/lucianodiisouza/aprenda-community",
     links: [
       { label: "aprenda.oprimo.dev", url: "https://aprenda.oprimo.dev" },
@@ -155,7 +155,7 @@ const PROJECTS = [
     category: "Video & Content",
     platforms: ["macOS"],
     tech: ["Swift"],
-    stars: 14,
+    stars: 15,
     github: "https://github.com/lucianodiisouza/notchy-desktop-macos",
     links: [],
     featured: false,
