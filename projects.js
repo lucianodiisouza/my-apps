@@ -395,7 +395,7 @@ const PROJECTS = [
     category: "Dev Tools",
     platforms: ["macOS"],
     tech: ["Swift"],
-    stars: 6,
+    stars: 8,
     github: "https://github.com/lucianodiisouza/daily-notch-tracker",
     links: [],
     featured: false,
