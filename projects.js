@@ -13,7 +13,7 @@ const PROJECTS = [
     category: "Education",
     platforms: ["Web"],
     tech: ["TypeScript", "Next.js"],
-    stars: 52,
+    stars: 53,
     github: "https://github.com/lucianodiisouza/aprenda-community",
     links: [
       { label: "aprenda.oprimo.dev", url: "https://aprenda.oprimo.dev" },
@@ -90,7 +90,7 @@ const PROJECTS = [
     category: "Education",
     platforms: ["Web"],
     tech: ["TypeScript"],
-    stars: 69,
+    stars: 70,
     github: "https://github.com/lucianodiisouza/teorical-questions-detran",
     links: [],
     featured: true,
