@@ -13,7 +13,7 @@ const PROJECTS = [
     category: "Education",
     platforms: ["Web"],
     tech: ["TypeScript", "Next.js"],
-    stars: 53,
+    stars: 56,
     github: "https://github.com/lucianodiisouza/aprenda-community",
     links: [
       { label: "aprenda.oprimo.dev", url: "https://aprenda.oprimo.dev" },
@@ -170,7 +170,7 @@ const PROJECTS = [
     category: "Video & Content",
     platforms: ["macOS"],
     tech: ["Swift"],
-    stars: 11,
+    stars: 12,
     github: "https://github.com/lucianodiisouza/camera-man-macos",
     links: [],
     featured: false,
