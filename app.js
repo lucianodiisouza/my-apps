@@ -127,15 +127,46 @@ themeToggle.addEventListener("click", (e) => {
 
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Cool bit: a directional push between themes (see the view-transition
-  // keyframes in styles.css). Falls back to an instant swap where View
-  // Transitions aren't supported or motion is reduced.
+  // Cool bit: a circular wipe from the toggle. Going TO dark, the new theme's
+  // circle OPENS (grows from the button); going back to light, the dark theme's
+  // circle CLOSES (shrinks to the button) — opposite directions. Falls back to
+  // an instant swap where View Transitions aren't supported or motion is reduced.
   if (!document.startViewTransition || reduce) {
     apply();
     return;
   }
 
-  document.startViewTransition(apply);
+  const opening = next === "dark";
+  const root = document.documentElement;
+
+  const rect = themeToggle.getBoundingClientRect();
+  const x = rect.left + rect.width / 2;
+  const y = rect.top + rect.height / 2;
+  const radius = Math.hypot(
+    Math.max(x, window.innerWidth - x),
+    Math.max(y, window.innerHeight - y)
+  );
+
+  const small = `circle(0px at ${x}px ${y}px)`;
+  const full = `circle(${radius}px at ${x}px ${y}px)`;
+
+  if (!opening) root.classList.add("theme-closing");
+
+  const transition = document.startViewTransition(apply);
+  transition.ready.then(() => {
+    root.animate(
+      // Opening: grow the new theme. Closing: shrink the old theme.
+      { clipPath: opening ? [small, full] : [full, small] },
+      {
+        duration: 520,
+        easing: "ease-in-out",
+        pseudoElement: opening
+          ? "::view-transition-new(root)"
+          : "::view-transition-old(root)",
+      }
+    );
+  });
+  transition.finished.finally(() => root.classList.remove("theme-closing"));
 });
 
 // Deep link support: /#slug scrolls to and highlights that card,

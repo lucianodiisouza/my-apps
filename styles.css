@@ -99,34 +99,25 @@ a { color: inherit; }
 :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
 :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
-/* Theme switch: a directional push — the old theme slides out to the left
-   while the new theme slides in from the right, so the two move in opposite
-   directions. Snapshots are full-page, so this reads as one panel replacing
-   the other. */
+/* Theme switch: a circular wipe from the toggle, driven by the clip-path
+   animation in app.js. Going TO dark the new theme's circle OPENS (grows);
+   going back to light the dark theme's circle CLOSES (shrinks) to reveal the
+   light theme underneath — opposite directions. The default cross-fade is
+   disabled so the two snapshots stack cleanly; whichever one is being clipped
+   sits on top. */
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 520ms;
-  animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
-  animation-fill-mode: both;
+  animation: none;
   mix-blend-mode: normal;
 }
-::view-transition-old(root) {
-  z-index: 1;
-  animation-name: theme-slide-out;
-}
-::view-transition-new(root) {
-  z-index: 2;
-  animation-name: theme-slide-in;
-}
 
-@keyframes theme-slide-out {
-  from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
-}
-@keyframes theme-slide-in {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
-}
+/* Opening (default): the new theme is clipped on top. */
+::view-transition-new(root) { z-index: 2; }
+::view-transition-old(root) { z-index: 1; }
+
+/* Closing: the old theme is clipped on top so it can shrink away. */
+:root.theme-closing::view-transition-new(root) { z-index: 1; }
+:root.theme-closing::view-transition-old(root) { z-index: 2; }
 
 .hero-kicker {
   font-family: "Archivo", sans-serif;
