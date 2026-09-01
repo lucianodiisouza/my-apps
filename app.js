@@ -131,13 +131,20 @@ themeToggle.addEventListener("click", (e) => {
   // circle OPENS (grows from the button); going back to light, the dark theme's
   // circle CLOSES (shrinks to the button) — opposite directions. Falls back to
   // an instant swap where View Transitions aren't supported or motion is reduced.
+  const root = document.documentElement;
+
   if (!document.startViewTransition || reduce) {
+    // Instant swap, but still suppress the elements' own transitions for a
+    // frame so the theme flips cleanly instead of ~90 shadows crossfading.
+    root.classList.add("theme-switching");
     apply();
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => root.classList.remove("theme-switching"))
+    );
     return;
   }
 
   const opening = next === "dark";
-  const root = document.documentElement;
 
   const rect = themeToggle.getBoundingClientRect();
   const x = rect.left + rect.width / 2;
@@ -150,11 +157,12 @@ themeToggle.addEventListener("click", (e) => {
   const small = `circle(0px at ${x}px ${y}px)`;
   const full = `circle(${radius}px at ${x}px ${y}px)`;
 
+  root.classList.add("theme-switching");
   if (!opening) root.classList.add("theme-closing");
 
   const transition = document.startViewTransition(apply);
   transition.ready.then(() => {
-    root.animate(
+    const anim = root.animate(
       // Opening: grow the new theme. Closing: shrink the old theme.
       { clipPath: opening ? [small, full] : [full, small] },
       {
@@ -169,8 +177,16 @@ themeToggle.addEventListener("click", (e) => {
           : "::view-transition-old(root)",
       }
     );
+    // A fill:forwards animation stays alive indefinitely; once the transition
+    // is done the snapshot is gone and the real DOM already shows the final
+    // theme, so cancel it to avoid animations piling up (which made repeated
+    // toggles stutter).
+    transition.finished.finally(() => anim.cancel());
   });
-  transition.finished.finally(() => root.classList.remove("theme-closing"));
+  transition.finished.finally(() => {
+    root.classList.remove("theme-closing");
+    root.classList.remove("theme-switching");
+  });
 });
 
 // Deep link support: /#slug scrolls to and highlights that card,

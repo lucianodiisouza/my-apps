@@ -119,6 +119,16 @@ a { color: inherit; }
 :root.theme-closing::view-transition-new(root) { z-index: 1; }
 :root.theme-closing::view-transition-old(root) { z-index: 2; }
 
+/* While a theme swap is in flight, suppress every element's own CSS
+   transitions. Otherwise flipping the theme variables fires ~90 shadow/color
+   transitions at once (box-shadow repaints are expensive) and they jank the
+   circular wipe. The wipe is a Web Animations clip-path, so it's unaffected. */
+:root.theme-switching *,
+:root.theme-switching *::before,
+:root.theme-switching *::after {
+  transition: none !important;
+}
+
 .hero-kicker {
   font-family: "Archivo", sans-serif;
   font-weight: 700;
