@@ -54,9 +54,11 @@ h1, h2, h3 { font-family: "Archivo", system-ui, sans-serif; }
 a { color: inherit; }
 
 /* ---------- hero ---------- */
-.hero { padding: 72px 24px 40px; }
+.hero { padding: 72px 0 40px; }
 
-.hero-inner { max-width: 980px; margin: 0 auto; position: relative; }
+/* Same max-width + horizontal padding as <main> so the hero text and the card
+   grid share one left/right edge on wide screens (not just on mobile). */
+.hero-inner { max-width: 980px; margin: 0 auto; padding: 0 24px; position: relative; }
 
 /* ---------- theme toggle ---------- */
 .theme-toggle {
@@ -96,6 +98,35 @@ a { color: inherit; }
 
 :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
 :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+/* Theme switch: a directional push — the old theme slides out to the left
+   while the new theme slides in from the right, so the two move in opposite
+   directions. Snapshots are full-page, so this reads as one panel replacing
+   the other. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 520ms;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  animation-fill-mode: both;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+  animation-name: theme-slide-out;
+}
+::view-transition-new(root) {
+  z-index: 2;
+  animation-name: theme-slide-in;
+}
+
+@keyframes theme-slide-out {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+@keyframes theme-slide-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
 
 .hero-kicker {
   font-family: "Archivo", sans-serif;

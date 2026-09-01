@@ -114,13 +114,28 @@ function currentTheme() {
     : "light";
 }
 
-themeToggle.addEventListener("click", () => {
+themeToggle.addEventListener("click", (e) => {
   const next = currentTheme() === "dark" ? "light" : "dark";
-  document.documentElement.setAttribute("data-theme", next);
-  try {
-    localStorage.setItem("theme", next);
-  } catch (e) {}
-  track(`theme-${next}`);
+
+  const apply = () => {
+    document.documentElement.setAttribute("data-theme", next);
+    try {
+      localStorage.setItem("theme", next);
+    } catch (err) {}
+    track(`theme-${next}`);
+  };
+
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Cool bit: a directional push between themes (see the view-transition
+  // keyframes in styles.css). Falls back to an instant swap where View
+  // Transitions aren't supported or motion is reduced.
+  if (!document.startViewTransition || reduce) {
+    apply();
+    return;
+  }
+
+  document.startViewTransition(apply);
 });
 
 // Deep link support: /#slug scrolls to and highlights that card,
