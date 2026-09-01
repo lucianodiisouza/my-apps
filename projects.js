@@ -2,6 +2,11 @@
 // Edit freely: stars are a snapshot (update whenever you like),
 // `links` accepts anything: App Store, YouTube demo, blog post, etc.
 // `slug` powers deep links like https://your.site/#semaphore for social posts.
+//
+// `category` is a purpose-based bucket (what the app is FOR), so the filters
+// help people find the right app. Keep these to the shared set:
+//   Developer Tools · Content Creation · Mac Utilities ·
+//   Productivity & Focus · Education · Finance & Business
 const PROJECTS = [
   {
     slug: "primo-academy",
@@ -9,7 +14,7 @@ const PROJECTS = [
     emoji: "🗺️",
     tagline: "Free, open-source programming roadmaps in PT-BR",
     description:
-      "Free, open-source programming study roadmaps in Portuguese. Inspired by roadmap.sh, but built for people starting from zero — whether or not they use AI along the way.",
+      "Free, open-source programming study roadmaps in Portuguese. Inspired by roadmap.sh, but built for people starting from zero, whether or not they use AI along the way.",
     category: "Education",
     platforms: ["Web"],
     tech: ["TypeScript", "Next.js"],
@@ -26,8 +31,8 @@ const PROJECTS = [
     emoji: "🖼️",
     tagline: "Native animated wallpapers for macOS",
     description:
-      "Native animated wallpapers for macOS — video, Metal shaders and web — built to respect your battery and GPU. Curated freemium library with a shader/web engine plus AI-generated scenes.",
-    category: "Products",
+      "Native animated wallpapers for macOS (video, Metal shaders and web), built to respect your battery and GPU. Curated freemium library with a shader/web engine plus AI-generated scenes.",
+    category: "Mac Utilities",
     platforms: ["macOS"],
     tech: ["Swift", "Metal"],
     stars: 2,
@@ -42,7 +47,7 @@ const PROJECTS = [
     tagline: "Modular, self-hosted personal life dashboard",
     description:
       "A shell-first personal dashboard where every feature is a pluggable module: Thoughts, Tasks, Money, Calendar, Goals, GitHub, File Board and Mood. Universal inbox capture, ⌘K search across modules, and cross-module links (tasks ↔ thoughts). Web-only, single-user, self-hosted for ~$7/mo.",
-    category: "Web Apps",
+    category: "Productivity & Focus",
     platforms: ["Web", "Self-hosted"],
     tech: ["TypeScript", "React"],
     stars: 16,
@@ -57,7 +62,7 @@ const PROJECTS = [
     tagline: "Management for driving schools and instructors",
     description:
       "Management platform for driving schools and independent instructors: scheduling, students and day-to-day operations in one place. Closed source.",
-    category: "Products",
+    category: "Finance & Business",
     platforms: ["Web"],
     tech: ["TypeScript"],
     stars: null,
@@ -72,7 +77,7 @@ const PROJECTS = [
     tagline: "Floating traffic light for AI coding agents",
     description:
       "Know at a glance when your AI coding agent is idle, thinking, or writing. Works with Claude Code, Codex, Cursor, Copilot and more, and includes a Stream Deck plugin.",
-    category: "Dev Tools",
+    category: "Developer Tools",
     platforms: ["macOS"],
     tech: ["Rust"],
     stars: 45,
@@ -102,7 +107,7 @@ const PROJECTS = [
     tagline: "Self-hosted personal finance app",
     description:
       "Own your financial data. Recta is a personal finance app you can run on your own server, split into a backend API and a web frontend.",
-    category: "Web Apps",
+    category: "Finance & Business",
     platforms: ["Web", "Self-hosted"],
     tech: ["TypeScript"],
     stars: 78,
@@ -120,7 +125,7 @@ const PROJECTS = [
     tagline: "Local-first, AI-powered video clipping",
     description:
       "Turn long recordings into short clips with AI. Everything runs locally, so your footage never leaves your machine. An open OpusClip alternative.",
-    category: "Video & Content",
+    category: "Content Creation",
     platforms: ["Desktop"],
     tech: ["TypeScript"],
     stars: 25,
@@ -134,8 +139,8 @@ const PROJECTS = [
     emoji: "🫳",
     tagline: "Drop, shake, AirDrop. From the menu bar.",
     description:
-      "A macOS menu-bar app that opens AirDrop the moment you shake the mouse while holding a file. No more dragging into a window or hunting through the share menu — drop a file, shake, done. First stable release (v1.0.0).",
-    category: "Dev Tools",
+      "A macOS menu-bar app that opens AirDrop the moment you shake the mouse while holding a file. No more dragging into a window or hunting through the share menu: drop a file, shake, done. First stable release (v1.0.0).",
+    category: "Mac Utilities",
     platforms: ["macOS"],
     tech: ["Swift"],
     stars: 3,
@@ -152,7 +157,7 @@ const PROJECTS = [
     tagline: "A tiny teleprompter that lives in your notch",
     description:
       "A macOS teleprompter tucked into the notch area, so you can read your script while looking straight at the camera.",
-    category: "Video & Content",
+    category: "Content Creation",
     platforms: ["macOS"],
     tech: ["Swift"],
     stars: 17,
@@ -167,7 +172,7 @@ const PROJECTS = [
     tagline: "Powerful, customizable camera app for macOS",
     description:
       "A camera overlay for content creators recording on macOS. Customize how you appear on screen while recording yourself.",
-    category: "Video & Content",
+    category: "Content Creation",
     platforms: ["macOS"],
     tech: ["Swift"],
     stars: 12,
@@ -182,7 +187,7 @@ const PROJECTS = [
     tagline: "Mockup generator for chat, AI, social & email screenshots",
     description:
       "Generate realistic fake screenshots of chat conversations, AI answers, social posts, stories and emails for demos, tutorials and content.",
-    category: "Web Apps",
+    category: "Content Creation",
     platforms: ["Web"],
     tech: ["TypeScript"],
     stars: 10,
@@ -212,7 +217,7 @@ const PROJECTS = [
     tagline: "Neo-brutalist React Native component library",
     description:
       "@primo-brutality/ui: bold, neo-brutalist components for React Native, with a Storybook preview to browse everything.",
-    category: "Dev Tools",
+    category: "Developer Tools",
     platforms: ["Mobile"],
     tech: ["TypeScript", "React Native"],
     stars: 5,
@@ -227,7 +232,7 @@ const PROJECTS = [
     tagline: "Design-system library with Stitches + Radix UI",
     description:
       "An (in)complete design system for React built with Stitches and Radix UI, documented in Storybook.",
-    category: "Dev Tools",
+    category: "Developer Tools",
     platforms: ["Web"],
     tech: ["TypeScript", "React"],
     stars: 4,
@@ -242,7 +247,7 @@ const PROJECTS = [
     tagline: "Staged fake push notifications for recordings",
     description:
       "A static PWA that fires realistic work notifications (chat + calendar) on your iPhone. Block the screen, record the notification center, get the shot. No backend.",
-    category: "Video & Content",
+    category: "Content Creation",
     platforms: ["Web", "iOS"],
     tech: ["JavaScript", "PWA"],
     stars: 0,
@@ -257,7 +262,7 @@ const PROJECTS = [
     tagline: "Webcam attention monitor that punishes distraction",
     description:
       "Desktop app that tracks your gaze with MediaPipe and spots your phone with YOLOv8. The moment you stop paying attention, it plays a video until you look back.",
-    category: "Experiments",
+    category: "Productivity & Focus",
     platforms: ["Desktop"],
     tech: ["Python"],
     stars: 3,
@@ -272,7 +277,7 @@ const PROJECTS = [
     tagline: "Skeleton loading components for React Native",
     description:
       "Customizable skeleton loaders with shimmer and pulse animations. New-architecture ready (Fabric/TurboModules), Expo compatible, pure TypeScript.",
-    category: "Dev Tools",
+    category: "Developer Tools",
     platforms: ["Mobile"],
     tech: ["TypeScript", "React Native"],
     stars: 2,
@@ -287,7 +292,7 @@ const PROJECTS = [
     tagline: "Spring animations for any React element",
     description:
       "Lightweight React animation library: spring physics on any CSS property via hooks, 60fps with requestAnimationFrame, zero dependencies.",
-    category: "Dev Tools",
+    category: "Developer Tools",
     platforms: ["Web"],
     tech: ["TypeScript", "React"],
     stars: 1,
@@ -302,7 +307,7 @@ const PROJECTS = [
     tagline: "Pomodoro timer with a black hole that enforces your breaks",
     description:
       "A pomodoro timer where breaks are enforced by a black hole that gravitationally lenses your live desktop. Built with Tauri 2, React and WebGL2.",
-    category: "Experiments",
+    category: "Productivity & Focus",
     platforms: ["Desktop"],
     tech: ["TypeScript", "Rust"],
     stars: 5,
@@ -316,8 +321,8 @@ const PROJECTS = [
     emoji: "🪶",
     tagline: "All-in-one React Native debug & dev tool (WIP)",
     description:
-      "One package instead of a pile of separate tools to debug and work on React Native apps — with AI built in, BYOK (bring your own key). Work in progress.",
-    category: "Dev Tools",
+      "One package instead of a pile of separate tools to debug and work on React Native apps, with AI built in, BYOK (bring your own key). Work in progress.",
+    category: "Developer Tools",
     platforms: ["Desktop"],
     tech: ["TypeScript", "React Native"],
     stars: 0,
@@ -331,8 +336,8 @@ const PROJECTS = [
     emoji: "🧹",
     tagline: "Free, native macOS storage cleaner (WIP)",
     description:
-      "A free, open-source, native macOS utility for cleaning, inspecting and managing your Mac's storage — for people who'd rather not pay for it yearly. Work in progress.",
-    category: "Dev Tools",
+      "A free, open-source, native macOS utility for cleaning, inspecting and managing your Mac's storage, for people who'd rather not pay for it yearly. Work in progress.",
+    category: "Mac Utilities",
     platforms: ["macOS"],
     tech: ["Swift"],
     stars: 2,
@@ -346,8 +351,8 @@ const PROJECTS = [
     emoji: "🔊",
     tagline: "Per-app volume control for macOS, from your menu bar",
     description:
-      "macOS gives you one system volume, not one per app. Voulum adds the missing mixer: see which app is making sound, jump straight to it, and set each app's volume or mute it independently — built on Core Audio process taps, no kernel extension.",
-    category: "Dev Tools",
+      "macOS gives you one system volume, not one per app. Voulum adds the missing mixer: see which app is making sound, jump straight to it, and set each app's volume or mute it independently. Built on Core Audio process taps, no kernel extension.",
+    category: "Mac Utilities",
     platforms: ["macOS"],
     tech: ["Swift"],
     stars: 31,
@@ -361,8 +366,8 @@ const PROJECTS = [
     emoji: "🎛️",
     tagline: "Turn your phone into a Stream-Deck-style controller for your Mac",
     description:
-      "A SwiftUI menu-bar app that serves a Svelte client to your phone, tablet, or browser on the same Wi-Fi — scan a QR to pair. Tap buttons that launch apps, send keyboard shortcuts, fire media keys, and control per-app volume. No cloud, no account.",
-    category: "Dev Tools",
+      "A SwiftUI menu-bar app that serves a Svelte client to your phone, tablet, or browser on the same Wi-Fi: scan a QR to pair. Tap buttons that launch apps, send keyboard shortcuts, fire media keys, and control per-app volume. No cloud, no account.",
+    category: "Mac Utilities",
     platforms: ["macOS", "Web"],
     tech: ["Swift", "Svelte"],
     stars: 6,
@@ -376,8 +381,8 @@ const PROJECTS = [
     emoji: "🃏",
     tagline: "Self-hostable, real-time planning poker (WIP)",
     description:
-      "Simple, self-hostable, real-time planning poker for agile teams — spin up a room, vote on stories and reveal estimates together. Open source. Work in progress.",
-    category: "Web Apps",
+      "Simple, self-hostable, real-time planning poker for agile teams: spin up a room, vote on stories and reveal estimates together. Open source. Work in progress.",
+    category: "Productivity & Focus",
     platforms: ["Web", "Self-hosted"],
     tech: ["TypeScript", "React"],
     stars: 0,
@@ -392,7 +397,7 @@ const PROJECTS = [
     tagline: "Focus + task tracker that lives in your MacBook's notch (WIP)",
     description:
       "An open-source macOS notch app that turns the space around the notch into a focus and task tracker. Hover to reveal your to-do list and a GitHub-style activity streak; start a task to run a Pomodoro timer right in the notch. Native SwiftUI + AppKit, local-first. Work in progress.",
-    category: "Dev Tools",
+    category: "Productivity & Focus",
     platforms: ["macOS"],
     tech: ["Swift"],
     stars: 10,
@@ -406,8 +411,8 @@ const PROJECTS = [
     emoji: "🔍",
     tagline: "Self-hosted AI pull request reviewer, BYO model (WIP)",
     description:
-      "A self-hosted AI pull request reviewer where you bring your own model and curate every AI comment before it reaches the PR — nothing posts without your say-so. Work in progress.",
-    category: "Dev Tools",
+      "A self-hosted AI pull request reviewer where you bring your own model and curate every AI comment before it reaches the PR: nothing posts without your say-so. Work in progress.",
+    category: "Developer Tools",
     platforms: ["Web", "Self-hosted"],
     tech: ["TypeScript", "AI"],
     stars: 1,
