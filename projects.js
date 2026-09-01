@@ -151,6 +151,23 @@ const PROJECTS = [
     featured: true,
   },
   {
+    slug: "pr-widget",
+    name: "PR Widget",
+    emoji: "🔀",
+    tagline: "Watch your GitHub pull requests from the menu bar",
+    description:
+      "A tiny native macOS menu-bar app that watches your GitHub pull requests so you stop alt-tabbing to github.com. Shows PRs needing your review, your open PRs with CI status and review decisions, and new PRs on your repos, then fires a desktop notification when anything changes. First stable release (v1.0.0).",
+    category: "Developer Tools",
+    platforms: ["macOS"],
+    tech: ["Swift"],
+    stars: 0,
+    github: "https://github.com/lucianodiisouza/pr-widget",
+    links: [
+      { label: "Download v1.0.0", url: "https://github.com/lucianodiisouza/pr-widget/releases/tag/v1.0.0" },
+    ],
+    featured: true,
+  },
+  {
     slug: "notchy",
     name: "Notchy",
     emoji: "📜",
