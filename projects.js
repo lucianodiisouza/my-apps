@@ -13,7 +13,7 @@ const PROJECTS = [
     category: "Education",
     platforms: ["Web"],
     tech: ["TypeScript", "Next.js"],
-    stars: 58,
+    stars: 59,
     github: "https://github.com/lucianodiisouza/aprenda-community",
     links: [
       { label: "aprenda.oprimo.dev", url: "https://aprenda.oprimo.dev" },
@@ -395,7 +395,7 @@ const PROJECTS = [
     category: "Dev Tools",
     platforms: ["macOS"],
     tech: ["Swift"],
-    stars: 9,
+    stars: 10,
     github: "https://github.com/lucianodiisouza/daily-notch-tracker",
     links: [],
     featured: false,
