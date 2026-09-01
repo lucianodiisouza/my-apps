@@ -158,7 +158,7 @@ themeToggle.addEventListener("click", (e) => {
       // Opening: grow the new theme. Closing: shrink the old theme.
       { clipPath: opening ? [small, full] : [full, small] },
       {
-        duration: 520,
+        duration: 800,
         easing: "ease-in-out",
         pseudoElement: opening
           ? "::view-transition-new(root)"
