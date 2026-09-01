@@ -101,6 +101,28 @@ document.getElementById("clear").addEventListener("click", () => {
 renderFilters();
 render();
 
+// ---------- theme toggle ----------
+// No saved choice => follow the OS (handled by CSS). Clicking flips to the
+// opposite of whatever is currently showing and remembers it in localStorage.
+const themeToggle = document.getElementById("theme-toggle");
+
+function currentTheme() {
+  const explicit = document.documentElement.getAttribute("data-theme");
+  if (explicit === "light" || explicit === "dark") return explicit;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+}
+
+themeToggle.addEventListener("click", () => {
+  const next = currentTheme() === "dark" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", next);
+  try {
+    localStorage.setItem("theme", next);
+  } catch (e) {}
+  track(`theme-${next}`);
+});
+
 // Deep link support: /#slug scrolls to and highlights that card,
 // so a social post can point straight at one project.
 function focusHash() {

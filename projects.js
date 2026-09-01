@@ -7,9 +7,9 @@ const PROJECTS = [
     slug: "primo-academy",
     name: "PrimoAcademy",
     emoji: "🗺️",
-    tagline: "Trilhas de programação em PT-BR, gratuitas e open source",
+    tagline: "Free, open-source programming roadmaps in PT-BR",
     description:
-      "Roadmaps de estudo de programação, em português, gratuitos e open source. Inspirado no roadmap.sh, mas pensado para quem está começando do zero — independente de usar IA ou não no caminho.",
+      "Free, open-source programming study roadmaps in Portuguese. Inspired by roadmap.sh, but built for people starting from zero — whether or not they use AI along the way.",
     category: "Education",
     platforms: ["Web"],
     tech: ["TypeScript", "Next.js"],
@@ -54,7 +54,7 @@ const PROJECTS = [
     slug: "conduzir",
     name: "Conduzir",
     emoji: "🎓",
-    tagline: "Gestão para autoescolas e instrutores",
+    tagline: "Management for driving schools and instructors",
     description:
       "Management platform for driving schools and independent instructors: scheduling, students and day-to-day operations in one place. Closed source.",
     category: "Products",

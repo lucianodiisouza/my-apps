@@ -12,8 +12,10 @@
   --radius: 14px;
 }
 
+/* Dark palette. Applied automatically when the OS is in dark mode AND the
+   user hasn't picked a theme, or explicitly whenever they choose "dark". */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #171511;
     --surface: #211e19;
     --ink: #f2efe8;
@@ -23,6 +25,17 @@
     --accent-soft: #3a221b;
     --chip: #2c2822;
   }
+}
+
+:root[data-theme="dark"] {
+  --bg: #171511;
+  --surface: #211e19;
+  --ink: #f2efe8;
+  --muted: #a39e91;
+  --line: #f2efe8;
+  --accent: #ff6b47;
+  --accent-soft: #3a221b;
+  --chip: #2c2822;
 }
 
 * { box-sizing: border-box; }
@@ -43,7 +56,46 @@ a { color: inherit; }
 /* ---------- hero ---------- */
 .hero { padding: 72px 24px 40px; }
 
-.hero-inner { max-width: 980px; margin: 0 auto; }
+.hero-inner { max-width: 980px; margin: 0 auto; position: relative; }
+
+/* ---------- theme toggle ---------- */
+.theme-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s, background 0.15s, color 0.15s;
+}
+
+.theme-toggle:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--line); }
+.theme-toggle:active { transform: translate(0, 0); box-shadow: var(--shadow-sm); }
+.theme-toggle:focus-visible { outline: none; box-shadow: var(--shadow-sm), 0 0 0 3px var(--accent-soft); }
+
+.theme-toggle svg { display: block; transition: transform 0.2s ease; }
+.theme-toggle:hover svg { transform: rotate(20deg); }
+
+/* Icon reflects the ACTIVE theme, using the same selectors as the palette:
+   moon while light, sun while dark. */
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
 .hero-kicker {
   font-family: "Archivo", sans-serif;
@@ -157,11 +209,13 @@ main { max-width: 980px; margin: 0 auto; padding: 0 24px 80px; }
   margin: 6px 2px 18px;
 }
 
-/* ---------- grid & cards ---------- */
+/* ---------- masonry grid & cards ---------- */
+/* Multi-column masonry: cards flow down each column and pack tightly,
+   so a short card sits directly under a taller one with no gap left by
+   descriptions of differing length. */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  gap: 20px;
+  column-width: 290px;
+  column-gap: 20px;
 }
 
 .card {
@@ -174,6 +228,10 @@ main { max-width: 980px; margin: 0 auto; padding: 0 24px 80px; }
   box-shadow: var(--shadow);
   transition: transform 0.12s, box-shadow 0.12s;
   scroll-margin-top: 24px;
+  /* keep a card intact within one column and space columns vertically */
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  margin-bottom: 20px;
 }
 
 .card:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--line); }
@@ -310,5 +368,6 @@ footer {
 
 @media (max-width: 480px) {
   .hero { padding-top: 48px; }
-  .grid { grid-template-columns: 1fr; }
+  /* below the column width, the masonry naturally collapses to a single column */
+  .grid { column-width: auto; columns: 1; }
 }
