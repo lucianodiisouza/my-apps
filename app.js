@@ -160,6 +160,10 @@ themeToggle.addEventListener("click", (e) => {
       {
         duration: 800,
         easing: "ease-in-out",
+        // Hold the final clip until the snapshot is torn down, otherwise the
+        // clip-path reverts to "full" for one frame and the old (dark) theme
+        // blinks at the end of a close.
+        fill: "forwards",
         pseudoElement: opening
           ? "::view-transition-new(root)"
           : "::view-transition-old(root)",
