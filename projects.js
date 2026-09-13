@@ -110,7 +110,7 @@ const PROJECTS = [
     category: "Finance & Business",
     platforms: ["Web", "Self-hosted"],
     tech: ["TypeScript"],
-    stars: 79,
+    stars: 81,
     github: "https://github.com/lucianodiisouza/recta-selfhosted-backend",
     links: [
       { label: "Backend", url: "https://github.com/lucianodiisouza/recta-selfhosted-backend" },
