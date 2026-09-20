@@ -62,7 +62,10 @@ function render() {
   const query = searchInput.value.trim();
   const visible = PROJECTS
     .filter((p) => matches(p, query))
-    .sort((a, b) => (b.featured - a.featured) || ((b.stars || 0) - (a.stars || 0)));
+    .sort((a, b) =>
+      (!!b.pinned - !!a.pinned) ||
+      (b.featured - a.featured) ||
+      ((b.stars || 0) - (a.stars || 0)));
 
   grid.innerHTML = visible.map(cardHTML).join("");
   emptyEl.hidden = visible.length > 0;

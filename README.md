@@ -24,6 +24,7 @@ All content lives in [`projects.js`](projects.js). Each entry looks like:
     { label: "Try it", url: "https://..." },
   ],
   featured: true,               // featured cards sort first
+  pinned: true,                 // pinned cards sort above everything else
 }
 ```
 
