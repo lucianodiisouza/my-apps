@@ -9,6 +9,21 @@
 //   Productivity & Focus · Education · Finance & Business
 const PROJECTS = [
   {
+    slug: "primodock",
+    name: "PrimoDock",
+    emoji: "🧭",
+    tagline: "One Mac, many desks: a Dock per workspace",
+    description:
+      "PrimoDock gives every workspace its own Dock: its own pinned apps, its own widgets, and the apps you opened there. It draws its own bar, hides the macOS one, and switching takes a click, a hotkey or a swipe. Stacks, window previews, 19 kinds of live widget and a Drop Zone. No account, no telemetry. Paid, with a 14-day trial that needs no card.",
+    category: "Mac Utilities",
+    platforms: ["macOS"],
+    tech: ["Swift", "SwiftUI"],
+    stars: null,
+    github: null,
+    links: [{ label: "dock.oprimo.dev", url: "https://dock.oprimo.dev" }],
+    featured: true,
+  },
+  {
     slug: "primo-academy",
     name: "PrimoAcademy",
     emoji: "🗺️",
