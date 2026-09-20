@@ -22,6 +22,7 @@ const PROJECTS = [
     github: null,
     links: [{ label: "dock.oprimo.dev", url: "https://dock.oprimo.dev" }],
     featured: true,
+    pinned: true,
   },
   {
     slug: "primo-academy",
