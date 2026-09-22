@@ -14,7 +14,7 @@ const PROJECTS = [
     emoji: "🧭",
     tagline: "One Mac, many desks: a Dock per workspace",
     description:
-      "PrimoDock gives every workspace its own Dock: its own pinned apps, its own widgets, and the apps you opened there. It draws its own bar, hides the macOS one, and switching takes a click, a hotkey or a swipe. Stacks, window previews, 19 kinds of live widget and a Drop Zone. No account, no telemetry. Paid, with a 14-day trial that needs no card.",
+      "PrimoDock gives every workspace its own Dock: its own pinned apps, its own widgets, and the apps you opened there. It draws its own bar, hides the macOS one, and switching takes a click, a hotkey or a swipe. Stacks, window previews, 28 kinds of live widget, workspace backups and a Drop Zone. No account, no telemetry. Paid, with a 14-day trial that needs no card.",
     category: "Mac Utilities",
     platforms: ["macOS"],
     tech: ["Swift", "SwiftUI"],
