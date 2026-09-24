@@ -193,7 +193,7 @@ const PROJECTS = [
     category: "Content Creation",
     platforms: ["macOS"],
     tech: ["Swift"],
-    stars: 17,
+    stars: 18,
     github: "https://github.com/lucianodiisouza/notchy-desktop-macos",
     links: [],
     featured: false,
