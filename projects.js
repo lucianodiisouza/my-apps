@@ -223,7 +223,7 @@ const PROJECTS = [
     category: "Content Creation",
     platforms: ["Web"],
     tech: ["TypeScript"],
-    stars: 10,
+    stars: 11,
     github: "https://github.com/lucianodiisouza/open-mock",
     links: [{ label: "Try it", url: "https://open-mock.vercel.app" }],
     featured: false,
