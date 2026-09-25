@@ -126,7 +126,7 @@ const PROJECTS = [
     category: "Finance & Business",
     platforms: ["Web", "Self-hosted"],
     tech: ["TypeScript"],
-    stars: 84,
+    stars: 86,
     github: "https://github.com/lucianodiisouza/recta-selfhosted-backend",
     links: [
       { label: "Backend", url: "https://github.com/lucianodiisouza/recta-selfhosted-backend" },
@@ -208,7 +208,7 @@ const PROJECTS = [
     category: "Content Creation",
     platforms: ["macOS"],
     tech: ["Swift"],
-    stars: 13,
+    stars: 14,
     github: "https://github.com/lucianodiisouza/camera-man-macos",
     links: [],
     featured: false,
