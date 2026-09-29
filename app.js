@@ -37,7 +37,9 @@ function cardHTML(p) {
   return `
     <article class="card" id="${p.slug}">
       <div class="card-top">
-        <span class="card-icon" aria-hidden="true">${p.emoji}</span>
+        ${p.icon
+          ? `<img class="card-icon card-icon-img" src="${p.icon}" alt="" aria-hidden="true" width="54" height="54" loading="lazy">`
+          : `<span class="card-icon" aria-hidden="true">${p.emoji}</span>`}
         ${starsBadge}
       </div>
       <h3><a href="#${p.slug}" title="Copy link to this project">${p.name}</a></h3>

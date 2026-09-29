@@ -287,6 +287,16 @@ main { max-width: 980px; margin: 0 auto; padding: 0 24px 80px; }
   padding: 9px;
 }
 
+/* Real app icons: the artwork brings its own shape, so drop the emoji box. */
+.card-icon-img {
+  width: 54px;
+  height: 54px;
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 12px;
+}
+
 .stars {
   font-family: "Archivo", sans-serif;
   font-weight: 700;

@@ -13,6 +13,7 @@ All content lives in [`projects.js`](projects.js). Each entry looks like:
   slug: "semaphore",            // stable anchor → share https://your.site/#semaphore
   name: "Semaphore",
   emoji: "🚦",                  // used as the app "icon"
+  icon: "icons/semaphore.png",  // optional real app icon (128px PNG), replaces the emoji
   tagline: "One-line pitch",
   description: "Longer blurb shown on the card.",
   category: "Dev Tools",        // filter chips are generated from these

@@ -12,6 +12,7 @@ const PROJECTS = [
     slug: "primodock",
     name: "PrimoDock",
     emoji: "🧭",
+    icon: "icons/primodock.png",
     tagline: "One Mac, many desks: a Dock per workspace",
     description:
       "PrimoDock gives every workspace its own Dock: its own pinned apps, its own widgets, and the apps you opened there. It draws its own bar, hides the macOS one, and switching takes a click, a hotkey or a swipe. Stacks, window previews, 28 kinds of live widget, workspace backups and a Drop Zone. No account, no telemetry. Paid, with a 14-day trial that needs no card.",
@@ -45,6 +46,7 @@ const PROJECTS = [
     slug: "primoengine",
     name: "PrimoEngine",
     emoji: "🖼️",
+    icon: "icons/primoengine.png",
     tagline: "Living wallpapers for your Mac, desktop and lock screen",
     description:
       "Metal shader, web and hand-painted video wallpapers that run natively on your Mac GPU, on the desktop and the lock screen. When a window covers everything, it pauses itself and drops to 0% CPU. 32 wallpapers in the app, no account needed. Free, with a one-time Premium unlock and no subscription.",
@@ -55,6 +57,7 @@ const PROJECTS = [
     github: null,
     links: [{ label: "engine.oprimo.dev", url: "https://engine.oprimo.dev" }],
     featured: true,
+    pinned: true,
   },
   {
     slug: "lifeboard",
