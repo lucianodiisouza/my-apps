@@ -26,6 +26,23 @@ const PROJECTS = [
     pinned: true,
   },
   {
+    slug: "primorec",
+    name: "PrimoRec",
+    emoji: "🎥",
+    icon: "icons/primorec.png",
+    tagline: "Shoot landscape, post vertical: an iPhone camera for creators",
+    description:
+      "Record once in 16:9 and PrimoRec also hands you a 9:16 vertical that follows the person in frame, with a smooth virtual camera. Everything is processed on the iPhone: no upload, no account. HD and 4K up to 120 fps, a monitor-style viewfinder, and Pro adds a teleprompter, full manual control and Apple Log. Free, with a one-time Pro unlock and no subscription.",
+    category: "Content Creation",
+    platforms: ["iOS"],
+    tech: ["Swift", "SwiftUI"],
+    stars: null,
+    github: null,
+    links: [{ label: "rec.oprimo.dev", url: "https://rec.oprimo.dev" }],
+    featured: true,
+    pinned: true,
+  },
+  {
     slug: "primo-academy",
     name: "PrimoAcademy",
     emoji: "🗺️",
