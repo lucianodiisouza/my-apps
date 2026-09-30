@@ -60,6 +60,21 @@ const PROJECTS = [
     featured: true,
   },
   {
+    slug: "typecourse",
+    name: "TypeCourse",
+    emoji: "⌨️",
+    tagline: "Free typing lessons in your browser",
+    description:
+      "A browser-based typing tutor: structured lessons from the home row to symbols, each with a target accuracy and WPM, plus long passages to practice on and a typing game for speed. English and Portuguese, optional typing sounds, and progress saved in your browser. No account needed.",
+    category: "Education",
+    platforms: ["Web"],
+    tech: ["TypeScript", "React"],
+    stars: null,
+    github: null,
+    links: [{ label: "type.oprimo.dev", url: "https://type.oprimo.dev" }],
+    featured: true,
+  },
+  {
     slug: "primoengine",
     name: "PrimoEngine",
     emoji: "🖼️",
