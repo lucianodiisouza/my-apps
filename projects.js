@@ -453,7 +453,7 @@ const PROJECTS = [
     category: "Productivity & Focus",
     platforms: ["Web", "Self-hosted"],
     tech: ["TypeScript", "React"],
-    stars: 2,
+    stars: 3,
     github: "https://github.com/lucianodiisouza/pokerface",
     links: [],
     featured: false,
