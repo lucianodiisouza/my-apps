@@ -179,7 +179,7 @@ const PROJECTS = [
     category: "Content Creation",
     platforms: ["Desktop"],
     tech: ["TypeScript"],
-    stars: 29,
+    stars: 30,
     github: "https://github.com/lucianodiisouza/PrimeClip",
     links: [],
     featured: true,
