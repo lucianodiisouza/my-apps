@@ -243,7 +243,7 @@ const PROJECTS = [
     category: "Content Creation",
     platforms: ["macOS"],
     tech: ["Swift"],
-    stars: 20,
+    stars: 21,
     github: "https://github.com/lucianodiisouza/camera-man-macos",
     links: [],
     featured: false,
