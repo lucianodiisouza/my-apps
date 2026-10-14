@@ -161,7 +161,7 @@ const PROJECTS = [
     category: "Finance & Business",
     platforms: ["Web", "Self-hosted"],
     tech: ["TypeScript"],
-    stars: 104,
+    stars: 105,
     github: "https://github.com/lucianodiisouza/recta-selfhosted-backend",
     links: [
       { label: "Backend", url: "https://github.com/lucianodiisouza/recta-selfhosted-backend" },
@@ -273,7 +273,7 @@ const PROJECTS = [
     category: "Education",
     platforms: ["Any"],
     tech: ["JavaScript"],
-    stars: 7,
+    stars: 8,
     github: "https://github.com/lucianodiisouza/interview-algorithm-serie",
     links: [],
     featured: false,
