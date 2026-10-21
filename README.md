@@ -35,7 +35,7 @@ Open-source projects need almost nothing else: stars, forks, license, latest rel
 ## How it builds
 
 - `scripts/fetch-github.mjs` pulls GitHub data into `data/github.json` (committed). A GitHub Action runs it every 6 hours and commits changes, which triggers a deploy.
-- `scripts/build.mjs` reads `projects.js`, `data/github.json` and `public/`, and writes the whole site to `dist/` in both languages: home, one page per app, one per category, `404.html`, `sitemap.xml`, `robots.txt` and `llms.txt`. No dependencies, no network.
+- `scripts/build.mjs` reads `projects.js`, `data/github.json` and `public/`, and writes the whole site to `dist/` in both languages: home, one page per app, one per category, `404.html`, `sitemap.xml`, `robots.txt`, `llms.txt` and `llms-full.txt`. No dependencies, no network.
 
 Old share links (`/#semaphore`) redirect to the app's page.
 
@@ -46,6 +46,8 @@ node scripts/build.mjs && npx serve dist
 ```
 
 To refresh GitHub data by hand: `GITHUB_TOKEN=$(gh auth token) node scripts/fetch-github.mjs`.
+
+After a deploy that adds or changes pages, `node scripts/indexnow.mjs` tells Bing and the other IndexNow engines (the key is served at `/indexnow.txt`).
 
 ## Deploying
 

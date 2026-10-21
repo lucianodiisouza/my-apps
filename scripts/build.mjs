@@ -887,6 +887,8 @@ function llmsTxt() {
     "",
     `> Catalog of apps and open-source projects built by ${AUTHOR.name} (PrimoDev, the O Primo Dev channel on YouTube). Every app has a page in English and in Brazilian Portuguese with what it does, platforms, price, FAQ and official links.`,
     "",
+    `Full content of every app in one file: ${SITE}/llms-full.txt`,
+    "",
   ];
   for (const c of CATEGORIES) {
     const list = sorted.filter((p) => p.category === c.slug);
@@ -899,6 +901,37 @@ function llmsTxt() {
     lines.push("");
   }
   lines.push("## Author", "", `- ${AUTHOR.name}: ${T.en.bio}`, ...AUTHOR.social.map((s) => `- ${s.label}: ${s.url}`), "");
+  return lines.join("\n");
+}
+
+// Everything an assistant needs in one file: every app's full English page
+// as Markdown, with the pt-BR URL next to it.
+function llmsFullTxt() {
+  const lines = [
+    "# PrimoDev Apps: full catalog",
+    "",
+    `> Every app and open-source project by ${AUTHOR.name} (PrimoDev), with what it does, platforms, price, requirements, features and FAQ. Each app also has a page in English and in Brazilian Portuguese. Short index: ${SITE}/llms.txt`,
+    "",
+  ];
+  for (const p of sorted) {
+    const v = view(p, "en");
+    lines.push(`## ${v.name}`, "");
+    lines.push(`- Page: ${SITE}${appUrl(p, "en")} (pt-BR: ${SITE}${appUrl(p, "pt")})`);
+    lines.push(`- Category: ${catName(catBySlug[p.category], "en")}`);
+    lines.push(`- Platforms: ${v.platforms.join(", ")}`);
+    if (v.price) lines.push(`- Price: ${v.price}`);
+    if (v.requirements) lines.push(`- Requirements: ${v.requirements}`);
+    if (v.site) lines.push(`- Official site: ${v.site.url}`);
+    if (v.stores?.appStore) lines.push(`- App Store: ${v.stores.appStore}`);
+    if (v.stores?.playStore) lines.push(`- Google Play: ${v.stores.playStore}`);
+    if (v.github) lines.push(`- Source code: ${v.github}${p.gh?.license ? ` (${p.gh.license})` : ""}${p.stars ? `, ${p.stars} GitHub stars` : ""}`);
+    lines.push("", v.summary);
+    if (v.details) lines.push("", v.details);
+    if (v.features?.length) lines.push("", "### Features", "", ...v.features.map((f) => `- ${f}`));
+    if (v.faq?.length) lines.push("", "### FAQ", "", ...v.faq.flatMap((f) => [`**${f.q}**`, f.a, ""]));
+    lines.push("");
+  }
+  lines.push("## Author", "", `${AUTHOR.name}: ${T.en.bio}`, "", ...AUTHOR.social.map((s) => `- ${s.label}: ${s.url}`), "");
   return lines.join("\n");
 }
 
@@ -936,6 +969,7 @@ for (const loc of LOCALES) {
 }
 write("404.html", notFoundPage());
 write("llms.txt", llmsTxt());
+write("llms-full.txt", llmsFullTxt());
 write("sitemap.xml", sitemap());
 write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
 console.log(`Built ${PROJECTS.length} app pages and ${CATEGORIES.length} category pages in ${LOCALES.length} languages into dist/`);
