@@ -1,6 +1,8 @@
 /* Apps do PrimoDev. Palette and type follow the PrimoDev brand book
    (primodev-assets-std/tokens/brand.json): Ink 60 · Soft White 30 ·
-   Slate 7 · Primo Cyan 3. Cyan is the only highlight on a screen. */
+   Slate 7 · Primo Cyan 3. Cyan is the only highlight on a screen.
+   The names are roles in the dark theme (--ink is the page, --text the
+   type); the light theme swaps the values and keeps the roles. */
 :root {
   --ink: #080e14;
   --ink-2: #0b121a;
@@ -10,10 +12,40 @@
   --muted: #9aa8b4;
   --faint: #6f7c88;
   --accent: #78d2eb;
+  --readme: #d4dbe1;
   --display: "Clash Display", "Sora", system-ui, sans-serif;
   --body: "Inter", system-ui, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, monospace;
   color-scheme: dark;
+}
+
+/* Light: follows the OS unless the toggle saved a choice (data-theme). Cyan
+   is darkened so links and buttons keep 4.5:1 on white. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --ink: #f5f6f7;
+    --ink-2: #eceff2;
+    --panel: #ffffff;
+    --slate: #d9dfe5;
+    --text: #080e14;
+    --muted: #4b5865;
+    --faint: #66727e;
+    --accent: #0f7898;
+    --readme: #23323f;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --ink: #f5f6f7;
+  --ink-2: #eceff2;
+  --panel: #ffffff;
+  --slate: #d9dfe5;
+  --text: #080e14;
+  --muted: #4b5865;
+  --faint: #66727e;
+  --accent: #0f7898;
+  --readme: #23323f;
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
@@ -107,7 +139,35 @@ img.app-icon[width="120"] { width: 120px; height: 120px; }
 .topnav { display: flex; gap: 4px; }
 .topnav a { padding: 10px 12px; color: var(--muted); text-decoration: none; font-weight: 500; font-size: 15px; }
 .topnav a:hover { color: var(--text); }
-.search { position: relative; margin-left: auto; display: block; }
+.top-tools { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.tool {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--slate);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--muted);
+  font: 500 14px var(--body);
+  text-decoration: none;
+  cursor: pointer;
+}
+.tool:hover { color: var(--text); border-color: var(--accent); }
+.tool.theme { padding: 0; }
+/* The theme button shows the theme you'd switch to: a moon while light, a sun while dark. */
+.tool .icon-sun { display: block; }
+.tool .icon-moon { display: none; }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .tool .icon-sun { display: none; }
+  :root:not([data-theme="dark"]) .tool .icon-moon { display: block; }
+}
+:root[data-theme="light"] .tool .icon-sun { display: none; }
+:root[data-theme="light"] .tool .icon-moon { display: block; }
+.search { position: relative; display: block; }
 .search .ic { position: absolute; left: 14px; top: 14px; color: var(--muted); pointer-events: none; }
 .search input {
   width: 300px;
@@ -173,7 +233,7 @@ img.app-icon[width="120"] { width: 120px; height: 120px; }
 .bento-lead { grid-column: span 2; grid-row: span 2; position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-height: 520px; }
 .bento-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .bento-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8, 14, 20, 0) 35%, rgba(8, 14, 20, 0.94) 100%); }
-.bento-body { position: relative; display: flex; flex-wrap: wrap; align-items: flex-end; gap: 20px; padding: 32px; }
+.bento-body { color: #f5f5f5; position: relative; display: flex; flex-wrap: wrap; align-items: flex-end; gap: 20px; padding: 32px; }
 .bento-text { flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 6px; font-size: 17px; }
 .bento-text .h-lg { margin: 0; font-size: 40px; }
 .bento-item { display: flex; flex-direction: column; }
@@ -300,7 +360,7 @@ img.app-icon[width="120"] { width: 120px; height: 120px; }
 .catpage .crumbs { margin-bottom: 48px; }
 
 /* README from GitHub: tame its markup into the page's type. */
-.readme { font-size: 15px; color: #d4dbe1; overflow-wrap: anywhere; }
+.readme { font-size: 15px; color: var(--readme); overflow-wrap: anywhere; }
 .readme h2, .readme h3, .readme h4 { font-family: var(--display); font-weight: 600; color: var(--text); line-height: 1.25; margin: 40px 0 12px; }
 .readme h2 { font-size: 24px; }
 .readme h3 { font-size: 19px; }
@@ -344,8 +404,10 @@ img.app-icon[width="120"] { width: 120px; height: 120px; }
 @media (max-width: 640px) {
   .wrap { padding: 0 16px; }
   .topnav { display: none; }
-  .search { margin-left: 0; width: 100%; }
+  .home .top-tools { width: 100%; margin-left: 0; }
+  .search { flex: 1; min-width: 0; }
   .search input { width: 100%; }
+  .tool.lang span { display: none; }
   .hero { padding-top: 48px; padding-bottom: 56px; gap: 40px; }
   .stats dd { font-size: 32px; }
   .bento { grid-template-columns: 1fr; }
@@ -364,4 +426,45 @@ img.app-icon[width="120"] { width: 120px; height: 120px; }
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
+}
+
+/* App Store / Google Play buttons, styled like the stores' own badges. */
+.stores { display: flex; flex-wrap: wrap; gap: 10px; }
+.store {
+  flex: 1 1 150px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 6px 16px;
+  border-radius: 12px;
+  background: var(--text);
+  color: var(--ink);
+  text-decoration: none;
+}
+.store:hover { background: var(--accent); color: var(--ink); }
+.store > span { display: flex; flex-direction: column; line-height: 1.15; }
+.store-pre { font-size: 11px; }
+.store-name { font: 600 17px var(--display); }
+
+/* Theme switch: a circular wipe from the toggle, driven by the clip-path
+   animation in app.js (same as the previous site). The default cross-fade is
+   off so the two snapshots stack cleanly; whichever one is being clipped sits
+   on top. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-new(root) { z-index: 2; }
+::view-transition-old(root) { z-index: 1; }
+:root.theme-closing::view-transition-new(root) { z-index: 1; }
+:root.theme-closing::view-transition-old(root) { z-index: 2; }
+
+/* While a theme swap is in flight, suppress the elements' own transitions so
+   dozens of color/border transitions don't jank the wipe. */
+:root.theme-switching *,
+:root.theme-switching *::before,
+:root.theme-switching *::after {
+  transition: none !important;
 }
