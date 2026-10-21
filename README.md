@@ -1,54 +1,48 @@
 # my-apps
 
-The catalog page for everything I build: open-source projects and apps I've talked about on my social media content, all in one place.
+The catalog for everything I build: open-source projects and apps I've talked about on my social media content, all in one place, at **https://apps.oprimo.dev**.
 
-**Not** a dev portfolio. It's an app directory: search it, filter it, share it.
+**Not** a dev portfolio. It's an app directory, and every app gets its own static page (`/primoengine/`, `/semaphore/`…) built for search engines and AI assistants: a direct "O que é o X?" answer, features, FAQ, a spec sheet and JSON-LD (`SoftwareApplication`, `FAQPage`, `BreadcrumbList`, `Person`).
+
+Copy is in pt-BR. Look and type follow the PrimoDev brand book (Ink + Primo Cyan, Clash Display).
 
 ## Editing the catalog
 
-All content lives in [`projects.js`](projects.js). Each entry looks like:
+All content lives in [`projects.js`](projects.js); the comment at the top lists every field. The short version:
 
 ```js
 {
-  slug: "semaphore",            // stable anchor → share https://your.site/#semaphore
+  slug: "semaphore",            // the page lives at /semaphore/. Don't change it once published
   name: "Semaphore",
-  emoji: "🚦",                  // used as the app "icon"
-  icon: "icons/semaphore.png",  // optional real app icon (128px PNG), replaces the emoji
-  tagline: "One-line pitch",
-  description: "Longer blurb shown on the card.",
-  category: "Dev Tools",        // filter chips are generated from these
+  icon: "semaphore.png",        // optional, in public/icons (128px). Without one the page uses the initial
+  cover: "semaphore-cover.jpg", // optional 1200x630 in public/img: home card + og:image
+  tagline: "One line",
+  summary: "O que é o Semaphore? in two sentences. The bit Google and AI assistants quote.",
+  category: "dev-tools",        // one of CATEGORIES
   platforms: ["macOS"],
   tech: ["Rust"],
-  stars: 36,                    // snapshot, update whenever
   github: "https://github.com/...",
-  links: [                      // any extra links: demo, App Store, video…
-    { label: "Try it", url: "https://..." },
-  ],
-  featured: true,               // featured cards sort first
-  pinned: true,                 // pinned cards sort above everything else
+  features: [...], faq: [{ q, a }], guides: [{ title, url }], youtube: "videoId",
 }
 ```
 
-No build step. Edit, refresh, done.
+Open-source projects need almost nothing else: stars, forks, license, latest release and the README come from GitHub.
+
+## How it builds
+
+- `scripts/fetch-github.mjs` pulls GitHub data into `data/github.json` (committed). A GitHub Action runs it every 6 hours and commits changes, which triggers a deploy.
+- `scripts/build.mjs` reads `projects.js`, `data/github.json` and `public/`, and writes the whole site to `dist/`: home, one page per app, one per category, `404.html`, `sitemap.xml`, `robots.txt` and `llms.txt`. No dependencies, no network.
+
+Old share links (`/#semaphore`) redirect to the app's page.
 
 ## Running locally
 
-Open `index.html` directly, or:
-
 ```sh
-npx serve .
+node scripts/build.mjs && npx serve dist
 ```
+
+To refresh GitHub data by hand: `GITHUB_TOKEN=$(gh auth token) node scripts/fetch-github.mjs`.
 
 ## Deploying
 
-Lives at **https://apps.oprimo.dev** (Vercel). It's plain static files: no build step, no framework.
-
-First deploy:
-
-```sh
-npx vercel --prod
-```
-
-(or import the repo in the Vercel dashboard: framework preset "Other", no build command, output dir `.`)
-
-Then add the subdomain: Vercel → Project → Settings → Domains → add `apps.oprimo.dev`. Since `oprimo.dev` DNS setup: add a CNAME record `apps → cname.vercel-dns.com`, or if the apex domain is already on Vercel, the domain just needs to be assigned to this project.
+Vercel, configured by [`vercel.json`](vercel.json): build command `node scripts/build.mjs`, output `dist`. Domain: `apps.oprimo.dev`.
