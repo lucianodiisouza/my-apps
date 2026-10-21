@@ -4,7 +4,9 @@ The catalog for everything I build: open-source projects and apps I've talked ab
 
 **Not** a dev portfolio. It's an app directory, and every app gets its own static page (`/primoengine/`, `/semaphore/`…) built for search engines and AI assistants: a direct "O que é o X?" answer, features, FAQ, a spec sheet and JSON-LD (`SoftwareApplication`, `FAQPage`, `BreadcrumbList`, `Person`).
 
-Copy is in pt-BR. Look and type follow the PrimoDev brand book (Ink + Primo Cyan, Clash Display).
+Every page exists in pt-BR (at the root) and English (under `/en/`), linked with hreflang. Visitors land on their language by country, decided at the edge in [`vercel.json`](vercel.json); the language toggle sets a `lang` cookie that wins over the country, and crawlers are never redirected. Light and dark themes follow the OS, with a toggle.
+
+Look and type follow the PrimoDev brand book (Ink + Primo Cyan, Clash Display).
 
 ## Editing the catalog
 
@@ -23,6 +25,8 @@ All content lives in [`projects.js`](projects.js); the comment at the top lists 
   tech: ["Rust"],
   github: "https://github.com/...",
   features: [...], faq: [{ q, a }], guides: [{ title, url }], youtube: "videoId",
+  stores: { appStore: "...", playStore: "..." },
+  en: { tagline: "...", summary: "...", features: [...], faq: [...] }, // English page; missing fields fall back to pt-BR
 }
 ```
 
@@ -31,7 +35,7 @@ Open-source projects need almost nothing else: stars, forks, license, latest rel
 ## How it builds
 
 - `scripts/fetch-github.mjs` pulls GitHub data into `data/github.json` (committed). A GitHub Action runs it every 6 hours and commits changes, which triggers a deploy.
-- `scripts/build.mjs` reads `projects.js`, `data/github.json` and `public/`, and writes the whole site to `dist/`: home, one page per app, one per category, `404.html`, `sitemap.xml`, `robots.txt` and `llms.txt`. No dependencies, no network.
+- `scripts/build.mjs` reads `projects.js`, `data/github.json` and `public/`, and writes the whole site to `dist/` in both languages: home, one page per app, one per category, `404.html`, `sitemap.xml`, `robots.txt` and `llms.txt`. No dependencies, no network.
 
 Old share links (`/#semaphore`) redirect to the app's page.
 
