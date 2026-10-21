@@ -101,7 +101,7 @@ const PROJECTS = [
     category: "Productivity & Focus",
     platforms: ["Web", "Self-hosted"],
     tech: ["TypeScript", "React"],
-    stars: 17,
+    stars: 18,
     github: "https://github.com/lucianodiisouza/lifeboard",
     links: [],
     featured: true,
