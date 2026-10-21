@@ -1,5 +1,271 @@
 {
   "buildCommand": "node scripts/build.mjs",
   "outputDirectory": "dist",
-  "trailingSlash": true
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/en/",
+      "permanent": false,
+      "has": [
+        {
+          "type": "cookie",
+          "key": "lang",
+          "value": "en"
+        }
+      ],
+      "missing": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*([Bb]ot|[Cc]rawl|[Ss]pider|[Ss]lurp|facebookexternalhit|[Pp]review|Lighthouse|Embedly).*"
+        }
+      ]
+    },
+    {
+      "source": "/categorias/:c/",
+      "destination": "/en/categories/:c/",
+      "permanent": false,
+      "has": [
+        {
+          "type": "cookie",
+          "key": "lang",
+          "value": "en"
+        }
+      ],
+      "missing": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*([Bb]ot|[Cc]rawl|[Ss]pider|[Ss]lurp|facebookexternalhit|[Pp]review|Lighthouse|Embedly).*"
+        }
+      ]
+    },
+    {
+      "source": "/:slug((?!en/|categorias/)[a-z0-9-]+)/",
+      "destination": "/en/:slug/",
+      "permanent": false,
+      "has": [
+        {
+          "type": "cookie",
+          "key": "lang",
+          "value": "en"
+        }
+      ],
+      "missing": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*([Bb]ot|[Cc]rawl|[Ss]pider|[Ss]lurp|facebookexternalhit|[Pp]review|Lighthouse|Embedly).*"
+        }
+      ]
+    },
+    {
+      "source": "/en/",
+      "destination": "/",
+      "permanent": false,
+      "has": [
+        {
+          "type": "cookie",
+          "key": "lang",
+          "value": "pt"
+        }
+      ],
+      "missing": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*([Bb]ot|[Cc]rawl|[Ss]pider|[Ss]lurp|facebookexternalhit|[Pp]review|Lighthouse|Embedly).*"
+        }
+      ]
+    },
+    {
+      "source": "/en/categories/:c/",
+      "destination": "/categorias/:c/",
+      "permanent": false,
+      "has": [
+        {
+          "type": "cookie",
+          "key": "lang",
+          "value": "pt"
+        }
+      ],
+      "missing": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*([Bb]ot|[Cc]rawl|[Ss]pider|[Ss]lurp|facebookexternalhit|[Pp]review|Lighthouse|Embedly).*"
+        }
+      ]
+    },
+    {
+      "source": "/en/:slug((?!categories/)[a-z0-9-]+)/",
+      "destination": "/:slug/",
+      "permanent": false,
+      "has": [
+        {
+          "type": "cookie",
+          "key": "lang",
+          "value": "pt"
+        }
+      ],
+      "missing": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*([Bb]ot|[Cc]rawl|[Ss]pider|[Ss]lurp|facebookexternalhit|[Pp]review|Lighthouse|Embedly).*"
+        }
+      ]
+    },
+    {
+      "source": "/",
+      "destination": "/en/",
+      "permanent": false,
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "lang"
+        },
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "BR|PT|AO|MZ|CV|GW|ST|TL"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*([Bb]ot|[Cc]rawl|[Ss]pider|[Ss]lurp|facebookexternalhit|[Pp]review|Lighthouse|Embedly).*"
+        }
+      ]
+    },
+    {
+      "source": "/categorias/:c/",
+      "destination": "/en/categories/:c/",
+      "permanent": false,
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "lang"
+        },
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "BR|PT|AO|MZ|CV|GW|ST|TL"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*([Bb]ot|[Cc]rawl|[Ss]pider|[Ss]lurp|facebookexternalhit|[Pp]review|Lighthouse|Embedly).*"
+        }
+      ]
+    },
+    {
+      "source": "/:slug((?!en/|categorias/)[a-z0-9-]+)/",
+      "destination": "/en/:slug/",
+      "permanent": false,
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "lang"
+        },
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "BR|PT|AO|MZ|CV|GW|ST|TL"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*([Bb]ot|[Cc]rawl|[Ss]pider|[Ss]lurp|facebookexternalhit|[Pp]review|Lighthouse|Embedly).*"
+        }
+      ]
+    },
+    {
+      "source": "/en/",
+      "destination": "/",
+      "permanent": false,
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "BR|PT|AO|MZ|CV|GW|ST|TL"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*([Bb]ot|[Cc]rawl|[Ss]pider|[Ss]lurp|facebookexternalhit|[Pp]review|Lighthouse|Embedly).*"
+        }
+      ]
+    },
+    {
+      "source": "/en/categories/:c/",
+      "destination": "/categorias/:c/",
+      "permanent": false,
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "BR|PT|AO|MZ|CV|GW|ST|TL"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*([Bb]ot|[Cc]rawl|[Ss]pider|[Ss]lurp|facebookexternalhit|[Pp]review|Lighthouse|Embedly).*"
+        }
+      ]
+    },
+    {
+      "source": "/en/:slug((?!categories/)[a-z0-9-]+)/",
+      "destination": "/:slug/",
+      "permanent": false,
+      "has": [
+        {
+          "type": "header",
+          "key": "x-vercel-ip-country",
+          "value": "BR|PT|AO|MZ|CV|GW|ST|TL"
+        }
+      ],
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "lang"
+        },
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*([Bb]ot|[Cc]rawl|[Ss]pider|[Ss]lurp|facebookexternalhit|[Pp]review|Lighthouse|Embedly).*"
+        }
+      ]
+    }
+  ]
 }
