@@ -1,5 +1,7 @@
-name: Update project stars
+name: Update GitHub data
 
+# Refreshes data/github.json (stars, forks, releases, READMEs). The commit
+# triggers a Vercel deploy, which rebuilds the pages from it.
 on:
   schedule:
     - cron: "17 */6 * * *" # every 6 hours (at :17)
@@ -18,19 +20,22 @@ jobs:
         with:
           node-version: 20
 
-      - name: Refresh stars
-        run: node scripts/update-stars.mjs
+      - name: Refresh GitHub data
+        run: node scripts/fetch-github.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Check the site still builds
+        run: node scripts/build.mjs
+
       - name: Commit if changed
         run: |
-          if [[ -n "$(git status --porcelain projects.js)" ]]; then
+          if [[ -n "$(git status --porcelain data/github.json)" ]]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add projects.js
-            git commit -m "chore: refresh project stars"
+            git add data/github.json
+            git commit -m "chore: refresh GitHub data"
             git push
           else
-            echo "No star changes."
+            echo "No changes."
           fi
