@@ -495,9 +495,9 @@ ${p.stars ? `<span class="row-stars" title="${t.starsTitle}">${I.star}${fmtNum(p
 function homePage(loc) {
   const t = T[loc];
   const featured = sorted.filter((p) => p.pinned).map((p) => view(p, loc));
-  // The big bento card needs a hero image; the rest use their cover.
-  const lead = featured.find((p) => p.hero);
   const spotP = PROJECTS.find((p) => p.spotlight);
+  // The big bento card needs a hero image; the rest use their cover.
+  const lead = featured.find((p) => p.hero && p.slug !== spotP?.slug);
   // The spotlight card already shows the latest launch, so it skips the bento.
   const rest = featured.filter((p) => p !== lead && p.slug !== spotP?.slug);
   const spot = spotP && view(spotP, loc);
