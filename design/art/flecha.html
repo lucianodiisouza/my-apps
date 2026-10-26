@@ -1,0 +1,95 @@
+<!doctype html>
+<!-- Arte do carrossel da home (1200x1200). Renderize com design/art/render.sh; #en troca os textos. -->
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+  html, body { margin: 0; width: 1200px; height: 1200px; overflow: hidden; }
+  svg { display: block; }
+  text { font-family: Inter, sans-serif; }
+  .mono { font-family: "JetBrains Mono", monospace; }
+</style>
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="minor" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0 H0 V40" fill="none" stroke="#1b3c6c" stroke-width="1" />
+    </pattern>
+    <pattern id="major" width="200" height="200" patternUnits="userSpaceOnUse">
+      <path d="M200 0 H0 V200" fill="none" stroke="#26518a" stroke-width="2" />
+    </pattern>
+    <radialGradient id="glow" cx=".5" cy=".38" r=".6">
+      <stop offset="0" stop-color="#1d4a86" />
+      <stop offset="1" stop-color="#0c2142" />
+    </radialGradient>
+    <filter id="sh" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#030b18" flood-opacity=".55" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="1200" fill="url(#glow)" />
+  <rect width="1200" height="1200" fill="url(#minor)" />
+  <rect width="1200" height="1200" fill="url(#major)" />
+
+  <!-- browser window -->
+  <g filter="url(#sh)">
+    <rect x="220" y="170" width="760" height="500" rx="28" fill="#0b1d3a" stroke="#2f62a3" stroke-width="2" />
+  </g>
+  <!-- sidebar -->
+  <path d="M220 198 a28 28 0 0 1 28 -28 H430 V670 H248 a28 28 0 0 1 -28 -28Z" fill="#102a52" />
+  <g fill="#3c5f8f"><circle cx="252" cy="200" r="7" /><circle cx="274" cy="200" r="7" /><circle cx="296" cy="200" r="7" /></g>
+  <rect x="242" y="226" width="166" height="34" rx="10" fill="#18386a" />
+  <g>
+    <rect x="242" y="280" width="48" height="48" rx="12" fill="#ff6a3d" />
+    <rect x="301" y="280" width="48" height="48" rx="12" fill="#78d2eb" />
+    <rect x="360" y="280" width="48" height="48" rx="12" fill="#f5f7fa" />
+  </g>
+  <text x="244" y="370" font-size="15" font-weight="600" fill="#7f9cc4" letter-spacing="1.5" data-en="TODAY">HOJE</text>
+  <g>
+    <rect x="242" y="386" width="166" height="38" rx="10" fill="#1f4a86" />
+    <rect x="254" y="397" width="16" height="16" rx="4" fill="#78d2eb" />
+    <rect x="280" y="401" width="100" height="8" rx="4" fill="#d6e4f5" />
+    <rect x="254" y="440" width="16" height="16" rx="4" fill="#ff6a3d" />
+    <rect x="280" y="444" width="84" height="8" rx="4" fill="#5d7fae" />
+    <rect x="254" y="480" width="16" height="16" rx="4" fill="#f5f7fa" />
+    <rect x="280" y="484" width="110" height="8" rx="4" fill="#5d7fae" />
+    <rect x="254" y="520" width="16" height="16" rx="4" fill="#9be07b" />
+    <rect x="280" y="524" width="70" height="8" rx="4" fill="#5d7fae" />
+  </g>
+  <g><circle cx="262" cy="636" r="8" fill="#78d2eb" /><circle cx="288" cy="636" r="8" fill="#3c5f8f" /><circle cx="314" cy="636" r="8" fill="#3c5f8f" /></g>
+  <!-- page placeholder -->
+  <g fill="#14315c">
+    <rect x="460" y="210" width="480" height="30" rx="8" />
+    <rect x="460" y="500" width="220" height="140" rx="14" />
+    <rect x="700" y="500" width="240" height="140" rx="14" />
+  </g>
+
+  <!-- command bar -->
+  <g filter="url(#sh)">
+    <rect x="400" y="258" width="560" height="224" rx="22" fill="#f5f7fa" />
+  </g>
+  <text x="430" y="306" font-size="26" fill="#0b1d3a" class="mono">› gh 482</text>
+  <rect x="566" y="282" width="3" height="32" fill="#1e8fb3" />
+  <path d="M400 330 H960" stroke="#d9e1ea" stroke-width="2" />
+  <rect x="414" y="342" width="532" height="44" rx="12" fill="#d8f1f9" />
+  <rect x="428" y="352" width="24" height="24" rx="6" fill="#0b1d3a" />
+  <text x="466" y="372" font-size="20" font-weight="600" fill="#0b1d3a" data-en="Open PR #482 on GitHub">Abrir PR #482 no GitHub</text>
+  <text x="932" y="372" text-anchor="end" font-size="18" fill="#1e8fb3" class="mono">↵</text>
+  <rect x="428" y="400" width="24" height="24" rx="6" fill="#ff6a3d" />
+  <text x="466" y="419" font-size="20" font-weight="500" fill="#3b4a5c" data-en="npm: react package">npm: pacote react</text>
+  <rect x="428" y="444" width="24" height="24" rx="6" fill="#78d2eb" />
+  <text x="466" y="463" font-size="20" font-weight="500" fill="#3b4a5c" data-en="MDN: fetch()">MDN: fetch()</text>
+
+  <!-- the arrow from the icon -->
+  <circle cx="880" cy="200" r="120" fill="none" stroke="#78d2eb" stroke-width="3" stroke-dasharray="10 12" opacity=".8" />
+  <path d="M800 278 L972 108" stroke="#78d2eb" stroke-width="3" stroke-dasharray="12 10" opacity=".8" />
+  <g filter="url(#sh)">
+    <path d="M992 92 L808 168 L878 196 L906 270Z" fill="#f5f7fa" />
+  </g>
+  <path d="M878 196 L906 270 L992 92Z" fill="#c9d6e6" />
+  <g stroke="#ff6a3d" stroke-width="6" stroke-linecap="round">
+    <path d="M760 128 L842 52" />
+    <path d="M748 116 L772 140 M830 40 L854 64" />
+  </g>
+</svg>
+<script>
+  if (location.hash === "#en") for (const el of document.querySelectorAll("[data-en]")) el.textContent = el.dataset.en;
+</script>

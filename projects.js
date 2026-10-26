@@ -6,6 +6,7 @@
 //   icon        ícone real em public/icons (128px). Sem ícone, a página usa a inicial.
 //   cover       imagem 1200x630 em public/img (card da home e og:image).
 //   hero        imagem grande no topo da página do app (public/img).
+//   art         arte 1200x1200 do carrossel da home (design/art). Sem ela, usa o hero ou a capa.
 //   tagline     uma linha, vai no card e no <title>.
 //   summary     "O que é o X?" em 2 frases. É o trecho que Google e IAs citam.
 //   details     parágrafo extra logo abaixo do summary (preço, modelo).
@@ -21,11 +22,12 @@
 //   features, faq ({ q, a }), guides ({ title, url }): seções da página.
 //   youtube     id de um vídeo do canal sobre o app (vira um embed).
 //   feedback    URL do quadro no FDBK.
-//   pinned      aparece nos destaques da home. spotlight: card "lançamento mais recente".
+//   pinned      número da posição nos destaques da home (carrossel e cards), 1 primeiro.
+//   spotlight   card "lançamento mais recente" no topo da home.
 //   isNew, wip  selos "Novo" e "Em construção".
 //   en          a versão em inglês (apps.oprimo.dev/en/<slug>/): os mesmos campos de
 //               texto (tagline, summary, details, features, faq, guides, price,
-//               requirements, languages, heroAlt, heroCaption) e, se o site oficial
+//               requirements, languages, heroAlt, heroCaption, art) e, se o site oficial
 //               tiver versão em inglês, o `site` dela. O que faltar cai no português.
 const CATEGORIES = [
   {
@@ -77,7 +79,9 @@ const PROJECTS = [
     tagline: "O navegador open source pra devs, com sidebar vertical e barra de comandos",
     summary: "O Flecha é um navegador Chromium pra macOS, Windows e Linux com sidebar vertical, Spaces, Peek e tela dividida no estilo do Arc, refeitos do zero, e uma barra de comandos que entende gh 482, npm, mdn, JWTs e URLs de staging. Ele mostra seus servidores de dev na sidebar, troca entre local, staging e produção com uma tecla e deixa agentes como Claude Code e Cursor usarem suas abas via MCP.",
     details: "É grátis e open source, com licença MIT. A versão v0.1.0 tem .dmg assinado e notarizado pra Macs com Apple silicon; as versões pra Mac Intel, Windows e Linux (.deb) vêm em seguida. Não tem conta nem telemetria: tudo fica no seu computador.",
+    art: "flecha-art.jpg",
     en: {
+      art: "flecha-art-en.jpg",
       cover: "flecha-cover-en.jpg",
       heroAlt: "Flecha's window: the sidebar with favorites, pinned tabs, Today tabs and Spaces, beside a GitHub page",
       tagline: "The open-source browser for developers, with a vertical sidebar and a command bar",
@@ -167,7 +171,7 @@ const PROJECTS = [
         a: "Em breve. A versão atual é pra Macs com Apple silicon, e as de Mac Intel, Windows e Linux (.deb) estão a caminho.",
       },
     ],
-    pinned: true,
+    pinned: 4,
     spotlight: true,
     isNew: true,
   },
@@ -304,7 +308,7 @@ const PROJECTS = [
       },
     ],
     feedback: "https://fdbk.online/oprimo/primoengine",
-    pinned: true,
+    pinned: 3,
   },
   {
     slug: "primodock",
@@ -314,7 +318,9 @@ const PROJECTS = [
     tagline: "Um Dock com ambientes, widgets e temas pro Mac e pro Windows 11",
     summary: "O PrimoDock é um app que troca o Dock do macOS e a barra de tarefas do Windows 11 por um Dock com ambientes, widgets ao vivo e temas, nativo em cada sistema e com a mesma cara nos dois. É pra quem quer separar trabalho, casa e foco em Docks diferentes e usar o mesmo Dock no Mac e no PC.",
     details: "Pagamento único de R$ 34,90 (ou US$ 9,99), sem assinatura, com licença vitalícia pra 1 Mac e 1 PC e um ano de atualizações. Dá pra testar 7 dias grátis, sem cartão e sem conta.",
+    art: "primodock-art.jpg",
     en: {
+      art: "primodock-art-en.jpg",
       cover: "primodock-cover-en.jpg",
       tagline: "A Dock with workspaces, widgets and themes for Mac and Windows 11",
       summary: "PrimoDock replaces the macOS Dock and the Windows 11 taskbar with a Dock that has workspaces, live widgets and themes, native on each system and identical on both. It's for people who want separate Docks for work, home and focus, and the same Dock on their Mac and their PC.",
@@ -434,7 +440,7 @@ const PROJECTS = [
       },
     ],
     feedback: "https://fdbk.online/oprimo/primodock",
-    pinned: true,
+    pinned: 1,
   },
   {
     slug: "primorec",
@@ -444,7 +450,9 @@ const PROJECTS = [
     tagline: "Grava na horizontal, posta na vertical: câmera de iPhone pra criadores",
     summary: "O PrimoRec é um app de câmera pro iPhone que grava em 16:9 e gera sozinho uma versão vertical 9:16 que acompanha a pessoa no quadro, com tudo processado no aparelho. É pra quem publica no YouTube e em vertical e quer uma gravação só pros dois, sem upload, sem conta e sem servidor.",
     details: "Baixar é grátis e gravar não tem limite; o vertical automático vale pra um vídeo por dia. O Pro é compra única de R$ 19,90 (US$ 9,90) na App Store, sem assinatura, e vale pra família pelo Compartilhamento Familiar.",
+    art: "primorec-art.jpg",
     en: {
+      art: "primorec-art-en.jpg",
       cover: "primorec-cover-en.jpg",
       tagline: "Shoot landscape, post vertical: an iPhone camera for creators",
       summary: "PrimoRec is an iPhone camera app that records in 16:9 and automatically creates a 9:16 vertical version that follows the person in frame, all processed on the device. It's for creators who post on YouTube and in vertical formats and want one recording for both, with no upload, no account and no server.",
@@ -521,7 +529,7 @@ const PROJECTS = [
       },
     ],
     feedback: "https://fdbk.online/oprimo/primorec",
-    pinned: true,
+    pinned: 2,
   },
   {
     slug: "criador-studio",
@@ -603,7 +611,6 @@ const PROJECTS = [
       },
     ],
     feedback: "https://fdbk.online/oprimo/criadorstudio",
-    pinned: true,
     isNew: true,
   },
   {
@@ -723,7 +730,6 @@ const PROJECTS = [
         url: "https://fdbk.online/pt-br/comparar/frill",
       },
     ],
-    pinned: true,
     isNew: true,
   },
   {

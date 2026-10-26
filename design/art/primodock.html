@@ -1,0 +1,102 @@
+<!doctype html>
+<!-- Arte do carrossel da home (1200x1200). Renderize com design/art/render.sh; #en troca os textos. -->
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap">
+<style>
+  html, body { margin: 0; width: 1200px; height: 1200px; overflow: hidden; }
+  svg { display: block; }
+  text { font-family: Inter, sans-serif; }
+  .display { font-family: "Clash Display", sans-serif; }
+</style>
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffe3c8" />
+      <stop offset=".5" stop-color="#ffa07c" />
+      <stop offset="1" stop-color="#e8553f" />
+    </linearGradient>
+    <filter id="sh" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#5a1a12" flood-opacity=".3" />
+    </filter>
+  </defs>
+
+  <!-- wallpaper -->
+  <rect width="1200" height="1200" fill="url(#sky)" />
+  <circle cx="700" cy="430" r="190" fill="#fff1d6" opacity=".85" />
+  <g fill="#fff6ee" opacity=".55">
+    <rect x="80" y="210" width="150" height="26" rx="13" />
+    <rect x="980" y="430" width="180" height="26" rx="13" />
+    <rect x="1010" y="120" width="120" height="22" rx="11" />
+  </g>
+  <path d="M0 640 C150 570 260 610 380 575 C500 540 600 600 720 575 C860 540 980 610 1200 555 V1200 H0Z" fill="#f07a5a" />
+  <path d="M0 760 C180 690 320 750 460 715 C620 670 760 750 900 715 C1020 685 1100 710 1200 695 V1200 H0Z" fill="#c9473a" />
+  <path d="M0 880 C200 825 360 885 520 855 C700 820 860 895 1200 835 V1200 H0Z" fill="#8e2c26" />
+  <path d="M0 1000 C240 955 480 1015 720 980 C900 955 1060 995 1200 975 V1200 H0Z" fill="#5c1c1a" />
+
+  <!-- calendar widget -->
+  <g filter="url(#sh)">
+    <rect x="250" y="130" width="200" height="200" rx="40" fill="#fff6ee" />
+  </g>
+  <text x="350" y="190" text-anchor="middle" font-size="26" font-weight="600" fill="#e8553f" letter-spacing="3" data-en="MON">SEG</text>
+  <text x="350" y="290" text-anchor="middle" font-size="104" font-weight="600" fill="#2a0f0c" class="display">26</text>
+
+  <!-- music widget -->
+  <g filter="url(#sh)">
+    <rect x="250" y="355" width="380" height="104" rx="30" fill="#7a2a22" />
+  </g>
+  <rect x="272" y="375" width="64" height="64" rx="16" fill="#ffcf5a" />
+  <path d="M296 392 L320 407 L296 422Z" fill="#7a2a22" />
+  <text x="356" y="402" font-size="24" font-weight="600" fill="#fff6ee" data-en="Lo-fi to focus">Lo-fi pra focar</text>
+  <g fill="#ff9a76">
+    <rect x="356" y="420" width="6" height="18" rx="3" />
+    <rect x="368" y="414" width="6" height="24" rx="3" />
+    <rect x="380" y="424" width="6" height="14" rx="3" />
+    <rect x="392" y="418" width="6" height="20" rx="3" />
+    <rect x="404" y="426" width="6" height="12" rx="3" />
+  </g>
+
+  <!-- clock widget -->
+  <g filter="url(#sh)">
+    <circle cx="880" cy="240" r="104" fill="#fff6ee" />
+  </g>
+  <g fill="#e8553f">
+    <circle cx="880" cy="158" r="5" /><circle cx="962" cy="240" r="5" />
+    <circle cx="880" cy="322" r="5" /><circle cx="798" cy="240" r="5" />
+  </g>
+  <path d="M880 240 L880 182" stroke="#2a0f0c" stroke-width="10" stroke-linecap="round" />
+  <path d="M880 240 L928 268" stroke="#2a0f0c" stroke-width="10" stroke-linecap="round" />
+  <circle cx="880" cy="240" r="10" fill="#e8553f" />
+
+  <!-- workspaces -->
+  <rect x="375" y="478" width="450" height="58" rx="29" fill="#5c1c1a" opacity=".55" />
+  <rect x="383" y="486" width="150" height="42" rx="21" fill="#fff6ee" />
+  <text x="458" y="514" text-anchor="middle" font-size="20" font-weight="600" fill="#2a0f0c" data-en="Work">Trabalho</text>
+  <text x="600" y="514" text-anchor="middle" font-size="20" font-weight="500" fill="#fff6ee" data-en="Personal">Pessoal</text>
+  <text x="744" y="514" text-anchor="middle" font-size="20" font-weight="500" fill="#fff6ee" data-en="Studio">Estúdio</text>
+
+  <!-- dock -->
+  <g filter="url(#sh)">
+    <rect x="250" y="556" width="700" height="130" rx="44" fill="#fff6ee" opacity=".38" />
+  </g>
+  <rect x="250" y="556" width="700" height="130" rx="44" fill="none" stroke="#fff6ee" stroke-opacity=".7" stroke-width="2" />
+  <g>
+    <rect x="284" y="575" width="92" height="92" rx="26" fill="#fff6ee" />
+    <circle cx="330" cy="621" r="22" fill="#e8553f" />
+    <rect x="392" y="575" width="92" height="92" rx="26" fill="#2f7f86" />
+    <rect x="416" y="599" width="44" height="44" rx="10" fill="#bfe8e4" />
+    <rect x="500" y="575" width="92" height="92" rx="26" fill="#ffcf5a" />
+    <path d="M546 597 L570 643 L522 643Z" fill="#7a2a22" />
+    <rect x="608" y="575" width="92" height="92" rx="26" fill="#7a2a22" />
+    <path d="M630 621 h48 M654 597 v48" stroke="#ffcf5a" stroke-width="10" stroke-linecap="round" />
+    <rect x="716" y="575" width="92" height="92" rx="26" fill="#78d2eb" />
+    <circle cx="762" cy="621" r="24" fill="none" stroke="#0e3a48" stroke-width="9" />
+    <rect x="824" y="575" width="92" height="92" rx="26" fill="#2a0f0c" />
+    <g fill="#fff6ee"><rect x="846" y="605" width="14" height="32" rx="4" /><rect x="864" y="597" width="14" height="40" rx="4" /><rect x="882" y="611" width="14" height="26" rx="4" /></g>
+  </g>
+  <circle cx="330" cy="676" r="4" fill="#fff6ee" />
+  <circle cx="546" cy="676" r="4" fill="#fff6ee" />
+</svg>
+<script>
+  if (location.hash === "#en") for (const el of document.querySelectorAll("[data-en]")) el.textContent = el.dataset.en;
+</script>

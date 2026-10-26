@@ -492,12 +492,13 @@ ${p.stars ? `<span class="row-stars" title="${t.starsTitle}">${I.star}${fmtNum(p
 
 function homePage(loc) {
   const t = T[loc];
-  const featured = sorted.filter((p) => p.pinned).map((p) => view(p, loc));
+  // The big card rotates through the featured apps (app.js) and the small
+  // cards list the same apps, in `pinned` order.
+  const featured = sorted
+    .filter((p) => p.pinned)
+    .sort((a, b) => a.pinned - b.pinned)
+    .map((p) => view(p, loc));
   const spotP = PROJECTS.find((p) => p.spotlight);
-  // The big bento card needs a hero image; the rest use their cover.
-  const lead = featured.find((p) => p.hero && p.slug !== spotP?.slug);
-  // The spotlight card already shows the latest launch, so it skips the bento.
-  const rest = featured.filter((p) => p !== lead && p.slug !== spotP?.slug);
   const spot = spotP && view(spotP, loc);
 
   const body = `<main>
@@ -525,20 +526,38 @@ ${spot ? `<a class="spot card" href="${spot.url}">
 <section class="wrap featured" aria-labelledby="dest">
 <div class="sec-head"><h2 id="dest" class="h-lg">${t.featured}</h2><span class="muted">${t.featuredSub}</span></div>
 <div class="bento">
-<a class="bento-lead card" href="${lead.url}">
-<img class="bento-bg" src="/img/${lead.hero}" alt="" width="1400" height="875">
+<div class="bento-lead card" data-carousel>
+${featured
+  .map(
+    (p, i) => `<a class="slide${i ? "" : " on"}" href="${p.url}"${i ? " inert" : ""}>
+${
+  // Without art or a hero, the cover sits on top of a blurred copy of itself.
+  p.art
+    ? `<img class="bento-bg art" src="/img/${p.art}" alt="" width="1200" height="1200"${i ? ' loading="lazy"' : ""}>`
+    : p.hero
+    ? `<img class="bento-bg" src="/img/${p.hero}" alt="" width="1400" height="875"${i ? ' loading="lazy"' : ""}>`
+    : `<img class="bento-bg blur" src="/img/${p.cover}" alt="" width="1200" height="630" loading="lazy">
+<img class="bento-cover" src="/img/${p.cover}" alt="" width="1200" height="630" loading="lazy">`
+}
 <span class="bento-scrim" aria-hidden="true"></span>
 <span class="bento-body">
-${appIcon(lead, 84)}
+${appIcon(p, 84)}
 <span class="bento-text">
-<span class="small">${esc(lead.platforms.join(" · "))}</span>
-<span class="h-lg">${esc(lead.name)}</span>
-<span>${esc(lead.tagline)}</span>
+<span class="small">${esc(p.platforms.join(" · "))}</span>
+<span class="h-lg">${esc(p.name)}</span>
+<span>${esc(p.tagline)}</span>
 </span>
 <span class="btn primary">${t.seeApp}</span>
 </span>
-</a>
-${rest
+</a>`
+  )
+  .join("\n")}
+<div class="bento-ctrl" hidden>
+${featured.map((p, i) => `<button type="button" class="bento-dot" aria-label="${esc(p.name)}"${i ? "" : ' aria-current="true"'}></button>`).join("")}
+<button type="button" class="bento-pause"></button>
+</div>
+</div>
+${featured
   .map(
     (p) => `<a class="bento-item card" href="${p.url}">
 <img class="cover" src="/img/${p.cover}" alt="" width="1200" height="630" loading="lazy">

@@ -156,6 +156,113 @@ if (rows) {
   });
 }
 
+// ---------- home: the big featured card rotates through the featured apps ----------
+// Pauses on hover, on focus and in background tabs, and doesn't start on its
+// own for people who asked the OS for less motion.
+const carousel = document.querySelector("[data-carousel]");
+if (carousel) {
+  const slides = [...carousel.querySelectorAll(".slide")];
+  const dots = [...carousel.querySelectorAll(".bento-dot")];
+  const pauseBtn = carousel.querySelector(".bento-pause");
+  // The small cards list the same apps; the one on screen gets highlighted.
+  const cards = slides.map((s) => document.querySelector(`.bento-item[href="${s.getAttribute("href")}"]`));
+  const icons = {
+    pause: '<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>',
+    play: '<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.9l10.5-6.5a1 1 0 0 0 0-1.8L9.5 4.6A1 1 0 0 0 8 5.5z"/></svg>',
+  };
+  let current = 0;
+  let paused = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let hovered = false;
+  let focused = false;
+  let timer;
+
+  function show(n) {
+    slides[current].classList.remove("on");
+    slides[current].inert = true;
+    dots[current].removeAttribute("aria-current");
+    cards[current]?.classList.remove("current");
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add("on");
+    slides[current].inert = false;
+    dots[current].setAttribute("aria-current", "true");
+    cards[current]?.classList.add("current");
+  }
+
+  function schedule() {
+    clearInterval(timer);
+    if (!paused && !hovered && !focused && !document.hidden) timer = setInterval(() => show(current + 1), 6000);
+  }
+
+  function renderPause() {
+    pauseBtn.innerHTML = paused ? icons.play : icons.pause;
+    pauseBtn.setAttribute("aria-label", paused ? (en ? "Play" : "Retomar") : en ? "Pause" : "Pausar");
+  }
+
+  dots.forEach((dot, i) =>
+    dot.addEventListener("click", () => {
+      show(i);
+      schedule();
+    })
+  );
+  pauseBtn.addEventListener("click", () => {
+    paused = !paused;
+    renderPause();
+    schedule();
+  });
+  carousel.addEventListener("mouseenter", () => {
+    hovered = true;
+    schedule();
+  });
+  carousel.addEventListener("mouseleave", () => {
+    hovered = false;
+    schedule();
+  });
+  carousel.addEventListener("focusin", () => {
+    focused = true;
+    schedule();
+  });
+  carousel.addEventListener("focusout", (e) => {
+    if (carousel.contains(e.relatedTarget)) return;
+    focused = false;
+    schedule();
+  });
+  document.addEventListener("visibilitychange", schedule);
+
+  // Swipe on phones; a swipe shouldn't also open the app.
+  let startX = null;
+  let swiped = false;
+  carousel.addEventListener(
+    "touchstart",
+    (e) => {
+      startX = e.touches[0].clientX;
+      swiped = false;
+    },
+    { passive: true }
+  );
+  carousel.addEventListener("touchend", (e) => {
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) {
+      swiped = true;
+      show(current + (dx < 0 ? 1 : -1));
+      schedule();
+    }
+  });
+  carousel.addEventListener(
+    "click",
+    (e) => {
+      if (swiped && e.target.closest(".slide")) e.preventDefault();
+    },
+    true
+  );
+
+  if (slides.length > 1) {
+    carousel.querySelector(".bento-ctrl").hidden = false;
+    show(0);
+    renderPause();
+    schedule();
+  }
+}
+
 // ---------- app page: copy the page link ----------
 document.addEventListener("click", async (e) => {
   const copy = e.target.closest(".copy");

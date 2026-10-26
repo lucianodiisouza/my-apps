@@ -1,0 +1,80 @@
+<!doctype html>
+<!-- Arte do carrossel da home (1200x1200). Renderize com design/art/render.sh; #en troca os textos. -->
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=JetBrains+Mono:wght@600&display=swap">
+<style>
+  html, body { margin: 0; width: 1200px; height: 1200px; overflow: hidden; }
+  svg { display: block; }
+  text { font-family: Inter, sans-serif; }
+  .mono { font-family: "JetBrains Mono", monospace; }
+</style>
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff6a3d" />
+      <stop offset=".45" stop-color="#d63e24" />
+      <stop offset="1" stop-color="#3a110b" />
+    </linearGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd9a8" />
+      <stop offset="1" stop-color="#ff9466" />
+    </linearGradient>
+    <filter id="sh" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="22" stdDeviation="26" flood-color="#2a0806" flood-opacity=".45" />
+    </filter>
+    <!-- the scene the phones are filming, drawn at 520x260 -->
+    <g id="scene">
+      <rect width="520" height="260" fill="url(#sky)" />
+      <circle cx="400" cy="92" r="46" fill="#fff4e0" />
+      <path d="M0 170 C90 130 170 150 250 128 C340 104 430 150 520 126 V260 H0Z" fill="#f2724a" />
+      <path d="M0 210 C120 180 230 205 330 188 C420 174 470 196 520 186 V260 H0Z" fill="#a8352a" />
+      <circle cx="300" cy="138" r="22" fill="#2a0f0c" />
+      <path d="M266 260 C266 196 282 168 300 168 C318 168 334 196 334 260Z" fill="#2a0f0c" />
+      <rect x="318" y="178" width="34" height="22" rx="6" fill="#2a0f0c" transform="rotate(-24 335 189)" />
+    </g>
+    <clipPath id="land"><rect width="520" height="260" rx="30" /></clipPath>
+    <clipPath id="port"><rect width="200" height="380" rx="30" /></clipPath>
+  </defs>
+
+  <rect width="1200" height="1200" fill="url(#bg)" />
+  <circle cx="600" cy="420" r="420" fill="#ff8a5c" opacity=".18" />
+
+  <!-- ruler from the icon -->
+  <g stroke="#ffe4d2" stroke-linecap="round" opacity=".75">
+    <path d="M300 128 v24 M340 132 v20 M380 128 v24 M420 132 v20 M460 128 v24 M500 132 v20 M540 128 v24 M660 128 v24 M700 132 v20 M740 128 v24 M780 132 v20 M820 128 v24 M860 132 v20 M900 128 v24" stroke-width="5" />
+    <path d="M600 112 v52" stroke-width="9" />
+  </g>
+
+  <!-- landscape phone -->
+  <g transform="translate(222 250) rotate(-6 270 145)" filter="url(#sh)">
+    <rect x="-16" y="-16" width="552" height="292" rx="46" fill="#140605" />
+    <g clip-path="url(#land)"><use href="#scene" /></g>
+    <rect x="18" y="18" width="150" height="40" rx="20" fill="#140605" opacity=".75" />
+    <circle cx="42" cy="38" r="9" fill="#ff3b2f" />
+    <text x="60" y="46" font-size="21" fill="#fff4e0" class="mono">REC 0:42</text>
+  </g>
+  <g transform="translate(250 600) rotate(-6 0 0)">
+    <rect width="190" height="46" rx="23" fill="#fff4e0" />
+    <text x="95" y="31" text-anchor="middle" font-size="21" font-weight="700" fill="#3a110b" data-en="Landscape">Deitado</text>
+  </g>
+
+  <!-- arrow -->
+  <path d="M700 238 C780 160 860 170 900 230" fill="none" stroke="#fff4e0" stroke-width="7" stroke-linecap="round" stroke-dasharray="2 18" />
+  <path d="M884 208 L904 238 L870 246" fill="none" stroke="#fff4e0" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- vertical phone -->
+  <g transform="translate(772 262) rotate(5 100 190)" filter="url(#sh)">
+    <rect x="-14" y="-14" width="228" height="408" rx="44" fill="#140605" />
+    <g clip-path="url(#port)"><use href="#scene" transform="translate(-338 0) scale(1.4615)" /></g>
+    <rect x="66" y="14" width="68" height="22" rx="11" fill="#140605" />
+    <rect x="14" y="330" width="78" height="34" rx="17" fill="#140605" opacity=".75" />
+    <text x="53" y="353" text-anchor="middle" font-size="18" fill="#fff4e0" class="mono">9:16</text>
+  </g>
+  <g transform="translate(800 690) rotate(5 0 0)">
+    <rect width="150" height="46" rx="23" fill="#fff4e0" />
+    <text x="75" y="31" text-anchor="middle" font-size="21" font-weight="700" fill="#3a110b" data-en="Vertical">Em pé</text>
+  </g>
+</svg>
+<script>
+  if (location.hash === "#en") for (const el of document.querySelectorAll("[data-en]")) el.textContent = el.dataset.en;
+</script>
