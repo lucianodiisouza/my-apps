@@ -114,13 +114,9 @@ if (rows) {
 
   function apply() {
     const words = search.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
-    // Featured apps already have big cards above, so the unfiltered list
-    // leaves them out; a category or a search brings them back.
-    const browsing = !cat && !words.length;
     let shown = 0;
     for (const el of items) {
       const ok =
-        !(browsing && "pinned" in el.dataset) &&
         (!cat || el.dataset.cat === cat) &&
         words.every((w) => el.dataset.q.includes(w));
       el.hidden = !ok;

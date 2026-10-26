@@ -1113,7 +1113,6 @@ const PROJECTS = [
     },
     category: "negocios",
     priceChip: "Grátis · Pro a partir de R$ 39/mês",
-    pinned: true,
     platforms: ["Web", "PWA"],
     tech: [
       "React",

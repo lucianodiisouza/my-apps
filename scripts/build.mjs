@@ -471,15 +471,13 @@ ${AUTHOR.social.slice(1, 4).map((s) => `<a class="btn ghost" href="${s.url}" rel
 </section>`;
 }
 
-// On the home, featured apps already have big cards, so their rows start
-// hidden and app.js shows them when a category or search is active.
-function row(p, loc, home = false) {
+function row(p, loc) {
   const v = view(p, loc);
   const t = T[loc];
   const hay = [v.name, v.tagline, v.summary, catName(catBySlug[p.category], loc), ...(v.platforms || []), ...v.tech]
     .join(" ")
     .toLowerCase();
-  return `<a class="row card" href="${v.url}" data-cat="${p.category}" data-q="${esc(hay)}"${home && p.pinned ? " data-pinned hidden" : ""}>
+  return `<a class="row card" href="${v.url}" data-cat="${p.category}" data-q="${esc(hay)}">
 ${appIcon(p, 56)}
 <span class="row-text">
 <span class="row-title"><span class="name">${esc(v.name)}</span>${badges(p, t)}</span>
@@ -501,7 +499,6 @@ function homePage(loc) {
   // The spotlight card already shows the latest launch, so it skips the bento.
   const rest = featured.filter((p) => p !== lead && p.slug !== spotP?.slug);
   const spot = spotP && view(spotP, loc);
-  const others = sorted.filter((p) => !p.pinned);
 
   const body = `<main>
 <section class="hero wrap">
@@ -558,16 +555,16 @@ ${I.arrow}
 
 <section id="apps" class="all" aria-labelledby="todos">
 <div class="wrap">
-<div class="sec-head"><h2 id="todos" class="h-lg">${t.allApps}</h2><span class="muted" id="count">${others.length} apps</span></div>
+<div class="sec-head"><h2 id="todos" class="h-lg">${t.allApps}</h2><span class="muted" id="count">${sorted.length} apps</span></div>
 <nav class="tabs" aria-label="${t.categories}">
-<a href="${homeUrl(loc)}#apps" data-cat="" aria-current="true">${t.all} <span>${others.length}</span></a>
+<a href="${homeUrl(loc)}#apps" data-cat="" aria-current="true">${t.all} <span>${sorted.length}</span></a>
 ${CATEGORIES.map((c) => {
   const n = PROJECTS.filter((p) => p.category === c.slug).length;
   return n ? `<a href="${catUrl(c, loc)}" data-cat="${c.slug}">${esc(catShort(c, loc))} <span>${n}</span></a>` : "";
 }).join("\n")}
 </nav>
 <div class="rows" id="rows">
-${sorted.map((p) => row(p, loc, true)).join("\n")}
+${sorted.map((p) => row(p, loc)).join("\n")}
 </div>
 <p class="empty" id="empty" hidden>${t.empty}</p>
 </div>
