@@ -3586,6 +3586,76 @@ const PROJECTS = [
     ],
     wip: true,
   },
+  {
+    slug: "votos",
+    name: "Votos",
+    icon: "votos.png",
+    cover: "votos-cover.jpg",
+    tagline: "Apuração do 2º turno das Eleições 2026 ao vivo, com os dados oficiais do TSE",
+    summary: "O Votos é um site que acompanha a apuração do 2º turno das Eleições 2026 em tempo real, com os dados oficiais do TSE atualizados a cada 15 segundos. Além do placar, ele mostra a projeção do resultado final, quantos votos faltam, o mapa do Brasil por UF e a curva da apuração com as viradas marcadas.",
+    details: "É grátis, sem anúncio e sem cadastro, e o código está no GitHub. O site é um HTML estático que busca os JSONs direto do CDN do TSE; projeções são estimativas, não resultado oficial.",
+    en: {
+      tagline: "Live count of Brazil's 2026 runoff election, with official TSE data",
+      summary: "Votos is a site that follows the count of Brazil's 2026 presidential runoff in real time, with official TSE (Superior Electoral Court) data refreshed every 15 seconds. Beyond the scoreboard, it shows a projection of the final result, how many votes are left, a map of Brazil by state and the count curve with lead changes marked.",
+      details: "It's free, with no ads and no sign-up, and the code is on GitHub. The site is static HTML that fetches the JSON files straight from the TSE CDN; projections are estimates, not official results.",
+      price: "Free (open source)",
+      requirements: "Any modern browser",
+      features: [
+        "Sticky scoreboard with a projection of the final result",
+        "Votes left to count and how many each candidate needs to take the lead",
+        "Map of Brazil by state: who leads, swing vs. the first round and % counted",
+        "Count curve with every lead change marked",
+        "Eve-of-election polls vs. the ballots, by region and for every state",
+        "Governor runoffs and an explorer for any office and state",
+        "Installable PWA with lead-change and milestone alerts (web push and sound)",
+      ],
+      faq: [
+        {
+          q: "Where does the data come from?",
+          a: "Straight from the TSE's official results CDN (resultados.tse.jus.br). Each browser fetches the files every 15 seconds and ignores older copies, so the numbers never go backwards.",
+        },
+        {
+          q: "Is the projection the official result?",
+          a: "No. It's an estimate based on what's been counted in each state. The official result is the TSE's.",
+        },
+        {
+          q: "Can I get notified of a lead change?",
+          a: "Yes. Install the site as an app (PWA) and turn on alerts: it sends a web push when the lead changes and at count milestones.",
+        },
+      ],
+    },
+    category: "produtividade",
+    platforms: ["Web", "PWA"],
+    tech: ["HTML", "JavaScript", "SVG", "Node.js", "Web Push", "Vercel"],
+    price: "Grátis (open source)",
+    requirements: "Qualquer navegador moderno",
+    site: { label: "votos.oprimo.dev", url: "https://votos.oprimo.dev" },
+    github: "https://github.com/lucianodiisouza/votos",
+    links: [],
+    features: [
+      "Placar fixo com projeção do resultado final",
+      "Votos que faltam e quanto cada candidato precisa pra virar",
+      "Mapa do Brasil por UF: quem lidera, swing vs. 1º turno e % apurado",
+      "Curva de evolução da apuração com as viradas marcadas",
+      "Pesquisas da véspera × urnas, por região e em todas as UFs",
+      "Governadores no 2º turno e explorador de qualquer cargo e UF",
+      "PWA com alertas de virada e marcos da apuração (web push e som)",
+    ],
+    faq: [
+      {
+        q: "De onde vêm os dados?",
+        a: "Direto do CDN oficial de resultados do TSE (resultados.tse.jus.br). Cada navegador busca os arquivos a cada 15 segundos e ignora cópias mais antigas, então os números nunca andam pra trás.",
+      },
+      {
+        q: "A projeção é o resultado oficial?",
+        a: "Não. É uma estimativa feita a partir do que já foi apurado em cada UF. O resultado oficial é o do TSE.",
+      },
+      {
+        q: "Dá pra ser avisado quando tiver virada?",
+        a: "Dá. Instala o site como app (PWA) e ativa os alertas: ele manda um web push quando a liderança muda e nos marcos da apuração.",
+      },
+    ],
+  },
 ];
 
 if (typeof module !== "undefined") module.exports = { PROJECTS, CATEGORIES };
