@@ -172,7 +172,6 @@ const PROJECTS = [
       },
     ],
     pinned: 4,
-    spotlight: true,
     isNew: true,
   },
   {
@@ -544,6 +543,7 @@ const PROJECTS = [
       { title: "CleanUai vs CleanMyMac", url: "https://clean.oprimo.dev/comparar/cleanuai-vs-cleanmymac/" },
     ],
     feedback: "https://fdbk.online/oprimo/cleanuai",
+    spotlight: true,
     isNew: true,
   },
   {
