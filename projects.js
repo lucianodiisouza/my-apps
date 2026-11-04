@@ -3194,13 +3194,13 @@ const PROJECTS = [
     isNew: true,
     tagline: "Volume, saída e EQ por app no macOS, direto da barra de menus",
     summary: "O Voulum é um mixer de barra de menus que dá pra cada app do macOS o próprio volume, a própria saída de áudio e o próprio equalizador. Dá pra abaixar a música sem mexer na chamada, aumentar um vídeo baixinho ou mandar um app só pro fone.",
-    details: "É grátis e open source (licença MIT). Desde a versão 0.4.1 vem assinado com Developer ID e notarizado pela Apple, então abre como qualquer app, e se atualiza sozinho.",
+    details: "É grátis e open source (licença MIT). Vem assinado com Developer ID e notarizado pela Apple, então abre como qualquer app, se atualiza sozinho e também instala com um comando pelo Homebrew.",
     site: { label: "audio.oprimo.dev", url: "https://audio.oprimo.dev/" },
     en: {
       heroAlt: "Voulum's landing: \"Every app gets a fader\" above a mixing desk with one channel per app",
       tagline: "Per-app volume, output and EQ for macOS, from your menu bar",
       summary: "Voulum is a menu bar mixer that gives every macOS app its own volume, its own audio output and its own equalizer. Turn the music down without touching the call, boost a quiet video or send one app to your headphones.",
-      details: "It is free and open source (MIT license). Since version 0.4.1 it is signed with a Developer ID and notarized by Apple, so it opens like any other app, and it updates itself.",
+      details: "It is free and open source (MIT license). It is signed with a Developer ID and notarized by Apple, so it opens like any other app, it updates itself and it also installs with one Homebrew command.",
       languages: ["English", "Portuguese (Brazil)", "Spanish"],
       price: "Free (open source)",
       requirements: "macOS 14.4+ (Liquid Glass style on macOS 26)",
@@ -3212,8 +3212,10 @@ const PROJECTS = [
         "Play and pause the app itself, with the track title from Spotify, Apple Music, VLC and browser tabs",
         "Shows the YouTube tab that's playing in Safari, Chrome, Arc, Opera and Flecha",
         "Global shortcuts, full keyboard control and a voulum:// URL scheme for Shortcuts and Raycast",
-        "Frosted or Liquid Glass popup, light and dark, and Settings with search",
-        "Welcome tour, automatic updates, in English, Portuguese and Spanish",
+        "Mixing Desk popup with live left and right LED meters on every fader, a master meter and a mic channel, plus Frosted and Liquid Glass styles",
+        "Graphic EQ with vertical faders in the Mixing Desk style, and Settings with search",
+        "Welcome tour, version and update check in the popup, in English, Portuguese and Spanish",
+        "Install with Homebrew: brew install lucianodiisouza/voulum/voulum",
       ],
       faq: [
         {
@@ -3222,8 +3224,8 @@ const PROJECTS = [
         },
         { q: "Which macOS version does it need?", a: "macOS 14.4 or later. The Liquid Glass popup style needs macOS 26." },
         {
-          q: "Do I still need to get past Gatekeeper?",
-          a: "Not since 0.4.1. Voulum is signed with a Developer ID and notarized by Apple, so you download the DMG, drag it to Applications and open it. Older releases needed the xattr command.",
+          q: "How do I install it?",
+          a: "Run brew install lucianodiisouza/voulum/voulum, or download the DMG and drag Voulum to Applications. It is signed with a Developer ID and notarized by Apple, so it opens without any Gatekeeper workaround, and it updates itself from then on.",
         },
         {
           q: "Why does it ask for audio permission? Does it record anything?",
@@ -3261,8 +3263,10 @@ const PROJECTS = [
       "Toca e pausa o próprio app, com o título da música do Spotify, Apple Music, VLC e abas do navegador",
       "Mostra a aba do YouTube que está tocando no Safari, Chrome, Arc, Opera e Flecha",
       "Atalhos globais, controle total pelo teclado e um esquema voulum:// pra Atalhos e Raycast",
-      "Popup Fosco ou Liquid Glass, claro e escuro, e Ajustes com busca",
-      "Tour de boas-vindas, atualização automática, em português, inglês e espanhol",
+      "Popup estilo Mesa de som, com medidores de LED de esquerda e direita em cada fader, medidor master e um canal de microfone, além dos estilos Fosco e Liquid Glass",
+      "Equalizador gráfico com faders verticais no estilo Mesa de som, e Ajustes com busca",
+      "Tour de boas-vindas, versão e checagem de atualização no popup, em português, inglês e espanhol",
+      "Instala pelo Homebrew: brew install lucianodiisouza/voulum/voulum",
     ],
     faq: [
       {
@@ -3271,8 +3275,8 @@ const PROJECTS = [
       },
       { q: "Qual versão do macOS ele precisa?", a: "macOS 14.4 ou mais novo. O estilo Liquid Glass do popup precisa do macOS 26." },
       {
-        q: "Ainda preciso liberar no Gatekeeper?",
-        a: "Não desde a 0.4.1. O Voulum vem assinado com Developer ID e notarizado pela Apple: é baixar o DMG, arrastar pra Aplicativos e abrir. As versões antigas precisavam do comando xattr.",
+        q: "Como instalo?",
+        a: "Rode brew install lucianodiisouza/voulum/voulum, ou baixe o DMG e arraste o Voulum pra Aplicativos. Ele vem assinado com Developer ID e notarizado pela Apple, então abre sem precisar liberar no Gatekeeper, e daí em diante se atualiza sozinho.",
       },
       {
         q: "Por que ele pede permissão de áudio? Ele grava alguma coisa?",
