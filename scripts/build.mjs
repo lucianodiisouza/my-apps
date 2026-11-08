@@ -625,6 +625,7 @@ const appCategory = {
   mac: "UtilitiesApplication",
   produtividade: "BusinessApplication",
   educacao: "EducationalApplication",
+  jogos: "GameApplication",
   negocios: "BusinessApplication",
 };
 
