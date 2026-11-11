@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "apps", "runtimeExecutable": "npx", "runtimeArgs": ["--yes", "serve", "dist", "-l", "4180"], "port": 4180 }
+  ]
+}
