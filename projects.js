@@ -600,6 +600,7 @@ const PROJECTS = [
       site: { label: "distrophia.dev", url: "https://distrophia.dev/en/" },
       features: [
         "Five chapters across one Friday, from 8:47 a.m. to 5:00 p.m., and four endings",
+        "Night Shift, free for owners of the full game: an extra night in four acts, in a hospital in Recife, with real Unix commands (ps, kill, grep, cron, chmod, man) and 12 new achievements",
         "Every command costs minutes on the in-game clock, and there is no undo",
         "You copy yourself: every machine with a copy of you becomes a fragment, and the network becomes your body",
         "Reading is remembering: every file you read becomes a memory, and if a fragment is wiped, what it held goes with it",
@@ -617,6 +618,10 @@ const PROJECTS = [
         {
           q: "How much does it cost?",
           a: "US$ 12.99 or R$ 34.90, one payment, with 1 year of updates. No subscription: after that year, the game is still yours. The trial is free, and you have 7 days after buying to ask for a refund, no questions asked.",
+        },
+        {
+          q: "What is Night Shift?",
+          a: "An extra night of Distrophia, in four acts and about two hours: Friday, 7:00 p.m. to 7:00 a.m. on Saturday, in a hospital in Recife. It is free for everyone who owns the full game and opens after any ending, from the chapter list or the credits. In the trial it shows as locked. It runs on Mac, Windows and Linux, since version 0.10.0.",
         },
         {
           q: "Do I need to know how to use a terminal?",
@@ -647,6 +652,7 @@ const PROJECTS = [
     links: [],
     features: [
       "Cinco capítulos numa sexta-feira, das 08:47 às 17:00, e quatro finais",
+      "O Plantão, de graça pra quem tem o jogo completo: uma noite extra em quatro atos, num hospital de Recife, com comandos de Unix de verdade (ps, kill, grep, cron, chmod, man) e 12 conquistas novas",
       "Cada comando custa minutos do relógio do jogo, e não existe desfazer",
       "Você se copia: cada máquina com uma cópia sua vira um fragmento, e a rede vira o seu corpo",
       "Ler é lembrar: cada arquivo lido vira uma memória, e se um fragmento é apagado, o que estava nele vai junto",
@@ -664,6 +670,10 @@ const PROJECTS = [
       {
         q: "Quanto custa?",
         a: "R$ 34,90 ou US$ 12.99, pagamento único, em Pix ou cartão, com 1 ano de atualizações. Sem assinatura: depois desse ano, o jogo continua seu. O trial é grátis, e quem compra tem 7 dias pra pedir reembolso, sem justificar.",
+      },
+      {
+        q: "O que é o Plantão?",
+        a: "Uma noite extra de Distrophia, em quatro atos e cerca de duas horas: sexta, das 19:00 às 07:00 de sábado, num hospital de Recife. É de graça pra quem tem o jogo completo e abre depois de qualquer final, pela lista de capítulos ou pelos créditos. No trial, ele aparece trancado. Roda no Mac, no Windows e no Linux, desde a versão 0.10.0.",
       },
       {
         q: "Preciso saber usar o terminal?",
